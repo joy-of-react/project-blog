@@ -42,12 +42,36 @@ h6 {
 html {
   --content-width: 55rem;
   --outer-content-width: 80rem;
+  --color-background: hsl(0deg 0% 100%);
+  --color-text: hsl(0deg 0% 5%);
+  --color-primary: hsl(256deg 100% 50%);
+  --color-tint: hsl(50deg 100% 92%);
+  --viewport-padding: 16px;
+}
+
+@media (prefers-color-scheme: dark) {
+  html {
+    --color-background: hsl(240deg 20% 93%);
+    --color-text: hsl(0deg 0% 100%);
+    --color-primary: hsl(256deg 20% 10%);
+    --color-tint: hsl(240deg 100% 20%);
+  }
+}
+
+@media (min-width: 35rem) {
+  html {
+    --viewport-padding: 24px;
+  }
 }
 
 /* GLOBAL STYLES */
 html {
+  color: var(--color-text);
+  background: var(--color-background);
   font-family: var(--font-family), sans-serif;
+  letter-spacing: -0.03em;
 }
+
 em {
   font-style: unset;
   font-variation-settings: 'slnt' -15, 'CRSV' 1;
@@ -56,4 +80,10 @@ em {
 p {
   font-size: 1.25rem;
   margin-bottom: 1.5em;
+}
+a {
+  color: currentColor;
+  text-decoration-color: var(--color-primary);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.125em;
 }

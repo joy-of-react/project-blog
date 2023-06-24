@@ -1,4 +1,9 @@
-.wrapper {
+.header {
+  grid-column: 1 / -1;
+  margin: 0 calc(var(--padding) * -1);
+}
+
+.pageWrapper {
   --padding: 16px;
   display: grid;
   grid-template-columns:
@@ -6,18 +11,10 @@
     1fr;
   max-width: var(--outer-content-width);
   margin: 0 auto;
+  margin-top: 72px;
   padding: 0 var(--padding);
 }
 
-.wrapper > * {
+.pageWrapper > * {
   grid-column: 2;
-}
-
-.header {
-  grid-column: 1 / -1;
-  margin: 0 calc(var(--padding) * -1);
-}
-
-.pageWrapper {
-  padding-top: 72px;
 }
