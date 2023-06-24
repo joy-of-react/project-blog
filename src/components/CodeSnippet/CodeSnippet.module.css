@@ -1,0 +1,15 @@
+.wrapper {
+  --inset-by: 24px;
+  margin: 0px calc(var(--inset-by) * -1) 32px !important;
+}
+.wrapper pre {
+  padding: var(--inset-by) !important;
+}
+.wrapper code {
+  font-family: var(--font-family);
+  font-variation-settings: 'MONO' 1;
+}
+.wrapper code > div {
+  font-size: 1.125rem;
+  padding: 0px !important;
+}

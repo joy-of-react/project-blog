@@ -1,5 +1,5 @@
 {
-  "name": "hello-next",
+  "name": "project-blog",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -8,7 +8,12 @@
     "start": "next start"
   },
   "dependencies": {
+    "bright": "^0.8.2",
+    "clsx": "^1.2.1",
+    "date-fns": "^2.30.0",
+    "gray-matter": "^4.0.3",
     "next": "13.4.0",
+    "next-mdx-remote": "^4.4.1",
     "react": "18.2.0",
     "react-dom": "18.2.0"
   }

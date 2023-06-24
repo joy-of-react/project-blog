@@ -1,5 +1,5 @@
 /*
-  Josh's Custom CSS Reset
+  CSS RESET
   https://www.joshwcomeau.com/css/custom-css-reset/
 */
 *,
@@ -9,10 +9,6 @@
 }
 * {
   margin: 0;
-}
-html,
-body {
-  height: 100%;
 }
 body {
   line-height: 1.5;
@@ -41,7 +37,23 @@ h5,
 h6 {
   overflow-wrap: break-word;
 }
-#root,
-#__next {
-  isolation: isolate;
+
+/* THEME VARIABLES */
+html {
+  --content-width: 55rem;
+  --outer-content-width: 80rem;
+}
+
+/* GLOBAL STYLES */
+html {
+  font-family: var(--font-family), sans-serif;
+}
+em {
+  font-style: unset;
+  font-variation-settings: 'slnt' -15, 'CRSV' 1;
+  letter-spacing: -1px;
+}
+p {
+  font-size: 1.25rem;
+  margin-bottom: 1.5em;
 }

@@ -1,0 +1,23 @@
+.wrapper {
+  --padding: 16px;
+  display: grid;
+  grid-template-columns:
+    1fr min(var(--content-width), 100%)
+    1fr;
+  max-width: var(--outer-content-width);
+  margin: 0 auto;
+  padding: 0 var(--padding);
+}
+
+.wrapper > * {
+  grid-column: 2;
+}
+
+.header {
+  grid-column: 1 / -1;
+  margin: 0 calc(var(--padding) * -1);
+}
+
+.pageWrapper {
+  padding-top: 72px;
+}
