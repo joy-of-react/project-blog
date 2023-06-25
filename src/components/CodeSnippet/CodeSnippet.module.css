@@ -6,8 +6,7 @@
   padding: var(--inset-by) !important;
 }
 .wrapper code {
-  font-family: var(--font-family);
-  font-variation-settings: 'MONO' 1;
+  font-family: var(--font-family-mono);
 }
 .wrapper code > div {
   font-size: 1.125rem;

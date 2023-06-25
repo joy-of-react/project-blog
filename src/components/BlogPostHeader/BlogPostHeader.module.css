@@ -4,10 +4,10 @@
   flex-direction: column;
   justify-content: flex-end;
   align-items: center;
-  aspect-ratio: 20 / 8;
+  height: calc(200px + 20vw);
   /* Trim corners */
   overflow: hidden;
-  background: hsl(260deg 100% 92%);
+  background: var(--color-accent);
 }
 .content {
   position: relative;
@@ -28,8 +28,26 @@
   opacity: 0.8;
 }
 
-.divider {
-  display: block;
-  opacity: 0.5;
-  transform: translateY(1px);
+.background {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 300px;
+  width: 100%;
+  background: repeating-linear-gradient(
+    -45deg,
+    hsl(256deg 100% 50% / 1) 0px 2px,
+    hsl(256deg 100% 50% / 0) 2px 4px
+  );
+  opacity: 0.05;
+}
+.blocker {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 80%;
+  width: 100%;
+  transform: translateY(-2px);
 }
