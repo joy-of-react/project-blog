@@ -9,6 +9,7 @@
 .wrapper {
   background: var(--color-backdrop);
   isolation: isolate;
+  padding-bottom: 128px;
 }
 
 .wrapper::before {
