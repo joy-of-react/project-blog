@@ -11,7 +11,7 @@
 .content {
   display: flex;
   justify-content: space-between;
-  align-items: baseline;
+  align-items: center;
   width: 100%;
 }
 
@@ -20,10 +20,15 @@
   text-decoration: none;
   font-size: 1.325rem;
   font-weight: 700;
+  transition: font-weight 400ms;
+}
+.logo:hover {
+  font-weight: 900;
+  transition: font-weight 0ms;
 }
 
-.content ul {
+.actions {
   display: flex;
   gap: 16px;
-  list-style-type: none;
+  align-items: center;
 }

@@ -5,11 +5,7 @@ import MainHeader from '@/components/MainHeader';
 import Hero from './Hero';
 import styles from './BlogLayout.module.css';
 
-function BlogLayout({
-  postSlug,
-  frontmatter,
-  children,
-}) {
+function BlogLayout({ postSlug, frontmatter, children }) {
   const heroImageSrc = `/covers/${postSlug}.jpg`;
 
   return (
@@ -28,9 +24,7 @@ function BlogLayout({
               aria-hidden="true"
               tabIndex={-1}
             >
-              <MainHeader
-                className={styles.pageHeader}
-              />
+              <MainHeader className={styles.pageHeader} />
             </div>
             {children}
           </div>

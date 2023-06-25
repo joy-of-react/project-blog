@@ -1,16 +1,13 @@
 .mainHeader {
   position: relative;
   z-index: 2;
-  max-width: calc(
-    var(--content-width) + var(--viewport-padding) *
-      2
-  );
+  max-width: calc(var(--content-width) + var(--viewport-padding) * 2);
   padding-left: var(--viewport-padding);
   padding-right: var(--viewport-padding);
 }
 
 .wrapper {
-  background: var(--color-decorative);
+  background: var(--color-backdrop);
   isolation: isolate;
 }
 
@@ -23,8 +20,8 @@
   height: 50vh;
   background: linear-gradient(
     to top,
-    var(--color-decorative-500),
-    var(--color-decorative-300)
+    var(--color-backdrop),
+    var(--color-backdrop-highlight)
   );
 }
 
@@ -37,7 +34,7 @@
   max-width: var(--outer-content-width);
   margin: 0 auto;
   padding: 0 var(--viewport-padding) 32px;
-  background: var(--color-decorative-100);
+  background: var(--color-page-background);
   box-shadow: var(--page-shadow-large);
   border-radius: 8px;
   overflow: clip;
@@ -48,23 +45,24 @@
 }
 
 .pageHeaderWrapper {
+  --shadow-color: hsl(50deg 30% 40% / 0.05);
+  --inset-by: 0px;
   grid-column: 1 / -1;
   position: sticky;
-  top: 0;
-  margin-left: calc(var(--viewport-padding) * -1);
-  margin-right: calc(
-    var(--viewport-padding) * -1
-  );
+  top: var(--inset-by);
+  margin-left: calc(var(--viewport-padding) * -1 + var(--inset-by));
+  margin-right: calc(var(--viewport-padding) * -1 + var(--inset-by));
   display: flex;
   justify-content: center;
-  width: calc(100% + var(--viewport-padding) * 2);
+  width: calc(100% + var(--viewport-padding) * 2 - var(--inset-by) * 2);
   height: var(--header-height);
   margin-top: calc(var(--header-height) * -1);
   margin-bottom: 64px;
-  background: var(--color-decorative-100);
-  background: white;
+  background: var(--color-sticky-header);
 }
 
 .pageHeader {
-  max-width: var(--content-width);
+  max-width: calc(var(--content-width) + var(--viewport-padding) * 2);
+  padding-left: var(--viewport-padding);
+  padding-right: var(--viewport-padding);
 }

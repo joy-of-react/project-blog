@@ -1,6 +1,9 @@
 import React from 'react';
 import Link from 'next/link';
 import clsx from 'clsx';
+import { Rss, Sun, Moon } from 'react-feather';
+
+import HeaderAction from './HeaderAction';
 
 import styles from './MainHeader.module.css';
 
@@ -15,18 +18,14 @@ function MainHeader({ className, ...delegated }) {
           The Modern Blog
         </Link>
 
-        <nav>
-          <ul>
-            <li>
-              <Link href="/">Home</Link>
-            </li>
-            <li>
-              <Link href="/tutorials">
-                Tutorials
-              </Link>
-            </li>
-          </ul>
-        </nav>
+        <div className={styles.actions}>
+          <HeaderAction href="/rss">
+            <Rss size="1.5rem" />
+          </HeaderAction>
+          <HeaderAction>
+            <Sun size="1.5rem" />
+          </HeaderAction>
+        </div>
       </div>
     </header>
   );

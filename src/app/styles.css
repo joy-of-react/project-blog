@@ -50,6 +50,18 @@ html {
   --color-decorative-500: hsl(50deg 100% 70%);
   --color-decorative: var(--color-decorative-500);
 
+  --selection-text-color: black;
+  --selection-background-color: hsl(50deg 100% 50%);
+
+  --viewport-padding: 16px;
+  --header-height: 5rem;
+
+  /* Semantic colors */
+  --color-backdrop: var(--color-decorative);
+  --color-backdrop-highlight: var(--color-decorative-300);
+  --color-page-background: var(--color-decorative-100);
+  --color-sticky-header: var(--color-page-background);
+
   /* prettier-ignore */
   --page-shadow-large:
     0px 1px 2px hsl(50deg 60% 50% / 0.25),
@@ -57,21 +69,25 @@ html {
     0px 9px 18px hsl(50deg 60% 50% / 0.25),
     0px 18px 36px hsl(50deg 60% 50% / 0.25),
     0px 54px 108px hsl(50deg 60% 50% / 0.25);
-  /* prettier-ignore */
-  --page-shadow-medium:
-    0px 1px 2px hsl(50deg 60% 50% / 0.25),
-    0px 2px 4px hsl(50deg 60% 50% / 0.25),
-    0px 4px 8px hsl(50deg 60% 50% / 0.25),
-    0px 8px 16px hsl(50deg 60% 50% / 0.25);
-
-  --viewport-padding: 16px;
-  --header-height: 5rem;
 }
 
 @media (prefers-color-scheme: dark) {
   html {
     --color-text: hsl(0deg 0% 100%);
+    --color-text-highlight: hsl(260deg 100% 80%);
     --color-primary: hsl(256deg 20% 10%);
+    --color-decorative-100: hsl(256deg 20% 4%);
+    --color-decorative-300: hsl(256deg 30% 15%);
+    --color-decorative-500: hsl(256deg 40% 30%);
+    --color-decorative: var(--color-decorative-500);
+    --selection-text-color: white;
+    --selection-background-color: hsl(256deg 100% 30%);
+
+    --color-backdrop: var(--color-decorative-100);
+    --color-backdrop-highlight: var(--color-decorative-500);
+    --color-page-background: transparent;
+    --page-shadow-large: none;
+    --color-sticky-header: var(--color-backdrop);
   }
 }
 
@@ -82,6 +98,18 @@ html {
 }
 
 /* GLOBAL STYLES */
+::selection {
+  background-color: var(--selection-background-color) !important;
+  color: var(--selection-text-color) !important;
+  background-image: none !important;
+  -webkit-text-fill-color: var(--selection-text-color) !important;
+  -moz-text-fill-color: var(--selection-text-color) !important;
+  background-image: none !important;
+  background-clip: revert !important;
+  -webkit-background-clip: revert !important;
+  text-shadow: none !important;
+}
+
 html {
   color: var(--color-text);
   font-family: var(--font-family), sans-serif;

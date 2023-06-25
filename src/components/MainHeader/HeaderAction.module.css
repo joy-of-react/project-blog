@@ -1,0 +1,12 @@
+.wrapper {
+  display: block;
+  border: none;
+  background: transparent;
+  width: 3rem;
+  height: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--color-text);
+  cursor: pointer;
+}
