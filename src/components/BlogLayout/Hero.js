@@ -2,9 +2,9 @@ import React from 'react';
 import { format } from 'date-fns';
 import clsx from 'clsx';
 
-import styles from './BlogPostHeader.module.css';
+import styles from './Hero.module.css';
 
-function BlogPostHeader({
+function Hero({
   title,
   publishedOn,
   imageSrc,
@@ -34,4 +34,4 @@ function BlogPostHeader({
   );
 }
 
-export default BlogPostHeader;
+export default Hero;

@@ -13,10 +13,11 @@
   position: relative;
   width: 100%;
   max-width: calc(
-    var(--content-width) + 16px * 2
+    var(--content-width) + var(--viewport-padding) *
+      2
   );
-  padding: 16px;
-  padding-top: calc(100px + 8vw);
+  padding: var(--viewport-padding);
+  padding-top: calc(48px + 8vw);
   padding-bottom: 64px;
 }
 

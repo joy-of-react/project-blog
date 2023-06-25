@@ -1,11 +1,11 @@
 import React from 'react';
 
 import { loadBlogPost } from '@/helpers/file-helpers';
-import Header from '@/components/BlogPostHeader';
+import BlogLayout from '@/components/BlogLayout';
 
-import styles from './BlogPostLayout.module.css';
+import './styles.css';
 
-async function BlogPostLayout({
+async function PostSlugLayout({
   params,
   children,
 }) {
@@ -13,21 +13,14 @@ async function BlogPostLayout({
     params.postSlug
   );
 
-  const headerImageSrc = `/covers/${params.postSlug}.jpg`;
-
   return (
-    <article className={styles.wrapper}>
-      <Header
-        className={styles.header}
-        title={frontmatter.title}
-        publishedOn={frontmatter.publishedOn}
-        imageSrc={headerImageSrc}
-      />
-      <div className={styles.pageWrapper}>
-        {children}
-      </div>
-    </article>
+    <BlogLayout
+      postSlug={params.postSlug}
+      frontmatter={frontmatter}
+    >
+      {children}
+    </BlogLayout>
   );
 }
 
-export default BlogPostLayout;
+export default PostSlugLayout;

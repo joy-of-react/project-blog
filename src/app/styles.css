@@ -42,21 +42,36 @@ h6 {
 html {
   --content-width: 55rem;
   --outer-content-width: 80rem;
-  --color-background: hsl(0deg 0% 100%);
-  --color-background-deeper: hsl(0deg 0% 90%);
   --color-text: hsl(0deg 0% 5%);
   --color-primary: hsl(256deg 100% 50%);
-  --color-accent: hsl(255deg 100% 92%);
-  --color-accent-deeper: hsl(255deg 60% 85%);
+
+  --color-decorative-100: hsl(50deg 100% 94%);
+  --color-decorative-300: hsl(50deg 100% 85%);
+  --color-decorative-500: hsl(50deg 100% 70%);
+  --color-decorative: var(--color-decorative-500);
+
+  /* prettier-ignore */
+  --page-shadow-large:
+    0px 1px 2px hsl(50deg 60% 50% / 0.25),
+    0px 3px 6px hsl(50deg 60% 50% / 0.25),
+    0px 9px 18px hsl(50deg 60% 50% / 0.25),
+    0px 18px 36px hsl(50deg 60% 50% / 0.25),
+    0px 54px 108px hsl(50deg 60% 50% / 0.25);
+  /* prettier-ignore */
+  --page-shadow-medium:
+    0px 1px 2px hsl(50deg 60% 50% / 0.25),
+    0px 2px 4px hsl(50deg 60% 50% / 0.25),
+    0px 4px 8px hsl(50deg 60% 50% / 0.25),
+    0px 8px 16px hsl(50deg 60% 50% / 0.25);
+
   --viewport-padding: 16px;
+  --header-height: 5rem;
 }
 
 @media (prefers-color-scheme: dark) {
   html {
-    --color-background: hsl(240deg 20% 93%);
     --color-text: hsl(0deg 0% 100%);
     --color-primary: hsl(256deg 20% 10%);
-    --color-accent: hsl(240deg 100% 20%);
   }
 }
 
@@ -68,16 +83,8 @@ html {
 
 /* GLOBAL STYLES */
 html {
-  --temp: hsl(255deg 100% 95%);
   color: var(--color-text);
-  background: var(--color-background);
   font-family: var(--font-family), sans-serif;
-  background: linear-gradient(
-    to right,
-    var(--temp) 0% 20%,
-    white 20% 80%,
-    var(--temp) 80% 100%
-  );
 }
 
 em {

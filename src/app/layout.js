@@ -30,10 +30,7 @@ function RootLayout({ children }) {
         monoFont.variable
       )}
     >
-      <body>
-        <MainHeader />
-        {children}
-      </body>
+      <body>{children}</body>
     </html>
   );
 }
