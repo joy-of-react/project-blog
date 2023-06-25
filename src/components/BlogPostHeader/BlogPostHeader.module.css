@@ -1,14 +1,22 @@
 .wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.innerWrapper {
   position: relative;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
   align-items: center;
+  width: 100%;
   height: calc(200px + 20vw);
-  /* Trim corners */
-  overflow: hidden;
+  max-width: var(--outer-content-width);
   background: var(--color-accent);
+  border-radius: 0 0 16px 16px;
 }
+
 .content {
   position: relative;
   width: 100%;
@@ -33,14 +41,15 @@
   left: 0;
   right: 0;
   bottom: 0;
-  height: 300px;
+  height: 220px;
   width: 100%;
   background: repeating-linear-gradient(
-    -45deg,
-    hsl(256deg 100% 50% / 1) 0px 2px,
-    hsl(256deg 100% 50% / 0) 2px 4px
+    -25deg,
+    hsl(256deg 100% 50% / 1) 0px 3px,
+    hsl(256deg 100% 50% / 0) 3px 10px
   );
   opacity: 0.05;
+  overflow: hidden;
 }
 .blocker {
   position: absolute;

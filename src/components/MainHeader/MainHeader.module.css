@@ -1,7 +1,11 @@
 .wrapper {
   display: flex;
   justify-content: center;
-  background: var(--color-background-deeper);
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  z-index: 2;
 }
 
 .outerWrapper {
@@ -9,7 +13,6 @@
   justify-content: center;
   width: 100%;
   max-width: var(--outer-content-width);
-  background: var(--color-background);
 }
 
 .content {

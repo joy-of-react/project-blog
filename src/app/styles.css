@@ -43,11 +43,11 @@ html {
   --content-width: 55rem;
   --outer-content-width: 80rem;
   --color-background: hsl(0deg 0% 100%);
-  --color-background-deeper: hsl(0deg 0% 95%);
+  --color-background-deeper: hsl(0deg 0% 90%);
   --color-text: hsl(0deg 0% 5%);
   --color-primary: hsl(256deg 100% 50%);
   --color-accent: hsl(260deg 100% 92%);
-  --color-accent-deeper: hsl(260deg 100% 86%);
+  --color-accent-deeper: hsl(260deg 60% 85%);
   --viewport-padding: 16px;
 }
 
