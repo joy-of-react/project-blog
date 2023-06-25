@@ -46,8 +46,8 @@ html {
   --color-background-deeper: hsl(0deg 0% 90%);
   --color-text: hsl(0deg 0% 5%);
   --color-primary: hsl(256deg 100% 50%);
-  --color-accent: hsl(260deg 100% 92%);
-  --color-accent-deeper: hsl(260deg 60% 85%);
+  --color-accent: hsl(255deg 100% 92%);
+  --color-accent-deeper: hsl(255deg 60% 85%);
   --viewport-padding: 16px;
 }
 
@@ -68,9 +68,16 @@ html {
 
 /* GLOBAL STYLES */
 html {
+  --temp: hsl(255deg 100% 95%);
   color: var(--color-text);
   background: var(--color-background);
   font-family: var(--font-family), sans-serif;
+  background: linear-gradient(
+    to right,
+    var(--temp) 0% 20%,
+    white 20% 80%,
+    var(--temp) 80% 100%
+  );
 }
 
 em {

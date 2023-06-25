@@ -15,6 +15,8 @@
   max-width: var(--outer-content-width);
   background: var(--color-accent);
   border-radius: 0 0 16px 16px;
+  /* Trim Blocker SVG */
+  overflow: hidden;
 }
 
 .content {
@@ -38,11 +40,11 @@
 
 .background {
   position: absolute;
-  left: 0;
-  right: 0;
+  left: -2px;
+  right: -2px;
   bottom: 0;
   height: 220px;
-  width: 100%;
+  width: calc(100% + 4px);
   background: repeating-linear-gradient(
     -25deg,
     hsl(256deg 100% 50% / 1) 0px 3px,
