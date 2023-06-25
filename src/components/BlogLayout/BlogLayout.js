@@ -18,16 +18,7 @@ function BlogLayout({ postSlug, frontmatter, children }) {
             publishedOn={frontmatter.publishedOn}
             imageSrc={heroImageSrc}
           />
-          <div className={styles.pageWrapper}>
-            <div
-              className={styles.pageHeaderWrapper}
-              aria-hidden="true"
-              tabIndex={-1}
-            >
-              <MainHeader className={styles.pageHeader} />
-            </div>
-            {children}
-          </div>
+          <div className={styles.pageWrapper}>{children}</div>
         </article>
       </main>
     </>

@@ -7,6 +7,14 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  border-radius: 1000px;
   color: var(--color-text);
   cursor: pointer;
+  transition: background 200ms;
+}
+.wrapper:hover {
+  background: white;
+}
+.wrapper svg {
+  display: block;
 }

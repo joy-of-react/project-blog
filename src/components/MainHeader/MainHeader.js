@@ -9,10 +9,7 @@ import styles from './MainHeader.module.css';
 
 function MainHeader({ className, ...delegated }) {
   return (
-    <header
-      className={clsx(styles.wrapper, className)}
-      {...delegated}
-    >
+    <header className={clsx(styles.wrapper, className)} {...delegated}>
       <div className={styles.content}>
         <Link href="/" className={styles.logo}>
           The Modern Blog
@@ -20,7 +17,13 @@ function MainHeader({ className, ...delegated }) {
 
         <div className={styles.actions}>
           <HeaderAction href="/rss">
-            <Rss size="1.5rem" />
+            <Rss
+              size="1.5rem"
+              style={{
+                // Optical alignment
+                transform: 'translate(2px, -2px)',
+              }}
+            />
           </HeaderAction>
           <HeaderAction>
             <Sun size="1.5rem" />
