@@ -1,0 +1,30 @@
+.wrapper {
+  display: block;
+  text-decoration: none;
+  font-size: 1.25rem;
+  font-weight: 700;
+  transition: all 400ms;
+  will-change: transform;
+}
+
+@media (min-width: 35rem) {
+  .wrapper {
+    font-size: 1.5rem;
+  }
+}
+
+@media (pointer: fine) {
+  .wrapper:hover {
+    font-weight: 900;
+    transition: all 100ms;
+    transform: translateX(-2px);
+    color: hsl(330deg 100% 45%);
+    color: oklch(0.66 0.3 5.52);
+  }
+}
+
+@media (pointer: fine) and (max-width: 35rem) {
+  .wrapper[data-mobile-alignment='center']:hover {
+    transform: translateX(0px);
+  }
+}

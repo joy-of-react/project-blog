@@ -1,3 +1,56 @@
 .wrapper {
-  
+  position: relative;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+.content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 64px;
+  width: 100%;
+  max-width: var(--content-width);
+  padding: 0 var(--viewport-padding);
+  padding-bottom: 48px;
+}
+
+.legalese {
+  margin-top: 24px;
+  font-size: 0.875rem;
+  color: var(--color-decorative-900);
+  max-width: 18rem;
+}
+
+.linkHeading {
+  font-size: 1.25rem;
+}
+
+.linkList {
+  margin-top: 24px;
+  list-style-type: none;
+  padding: 0;
+}
+.linkList li:not(:last-child) {
+  margin-bottom: 8px;
+}
+.linkList a {
+  text-decoration: none;
+  font-size: 1rem;
+}
+
+@media (min-width: 35rem) {
+  .wrapper {
+    padding-bottom: 64px;
+    text-align: revert;
+  }
+
+  .content {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 32px;
+  }
 }

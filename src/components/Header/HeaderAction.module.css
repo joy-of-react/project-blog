@@ -13,7 +13,7 @@
   transition: background 200ms;
 }
 .wrapper:hover {
-  background: white;
+  background: var(--color-decorative-100);
 }
 .wrapper svg {
   display: block;

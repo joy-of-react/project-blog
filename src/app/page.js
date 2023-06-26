@@ -1,7 +1,12 @@
 import React from 'react';
 
-function Home() {
-  return <p>Hello world!</p>;
+import { getBlogPostList } from '@/helpers/file-helpers';
+import Homepage from '@/components/Homepage';
+
+async function Home() {
+  const files = await getBlogPostList('/content');
+
+  return <Homepage articles={files} />;
 }
 
 export default Home;

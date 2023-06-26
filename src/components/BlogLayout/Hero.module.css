@@ -12,21 +12,31 @@
 .content {
   position: relative;
   width: 100%;
-  max-width: calc(
-    var(--content-width) + var(--viewport-padding) *
-      2
-  );
+  max-width: var(--content-width);
   padding: var(--viewport-padding);
   padding-top: calc(48px + 8vw);
   padding-bottom: 64px;
 }
 
 .content h1 {
-  font-size: 2.25rem;
+  font-size: 1.75rem;
   margin-bottom: 0.5rem;
 }
 .content p {
-  font-size: 1.25rem;
-  opacity: 0.8;
+  font-size: 1.125rem;
+  color: var(--color-decorative-900);
   margin-bottom: 0px;
+  font-weight: 300;
+}
+.content time {
+  font-weight: 500;
+}
+
+@media (min-width: 35rem) {
+  .content h1 {
+    font-size: 2.25rem;
+  }
+  .content p {
+    font-size: 1.25rem;
+  }
 }

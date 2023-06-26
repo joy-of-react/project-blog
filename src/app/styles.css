@@ -10,6 +10,9 @@
 * {
   margin: 0;
 }
+html {
+  scrollbar-gutter: stable;
+}
 body {
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
@@ -40,21 +43,28 @@ h6 {
 
 /* THEME VARIABLES */
 html {
-  --content-width: 55rem;
-  --outer-content-width: 80rem;
   --color-text: hsl(0deg 0% 5%);
   --color-primary: hsl(256deg 100% 50%);
 
   --color-decorative-100: hsl(50deg 100% 94%);
   --color-decorative-300: hsl(50deg 100% 85%);
   --color-decorative-500: hsl(50deg 100% 70%);
+  --color-decorative-700: hsl(50deg 50% 50%);
+  --color-decorative-900: hsl(50deg 70% 25%);
   --color-decorative: var(--color-decorative-500);
+  --syntax-bg: hsl(256deg 20% 4%);
+  --syntax-border-color: transparent;
 
   --selection-text-color: black;
   --selection-background-color: hsl(50deg 100% 50%);
 
+  --content-width: 55rem;
+  --outer-content-width: 80rem;
   --viewport-padding: 16px;
   --header-height: 5rem;
+  --trimmed-content-width: calc(
+    var(--content-width) - var(--viewport-padding) * 2
+  );
 
   /* Semantic colors */
   --color-backdrop: var(--color-decorative);
@@ -79,7 +89,10 @@ html {
     --color-decorative-100: hsl(256deg 20% 4%);
     --color-decorative-300: hsl(256deg 30% 15%);
     --color-decorative-500: hsl(256deg 40% 30%);
+    --color-decorative-700: hsl(256deg 40% 50%);
+    --color-decorative-900: hsl(256deg 50% 80%);
     --color-decorative: var(--color-decorative-500);
+    --syntax-border-color: var(--color-decorative-300);
     --selection-text-color: white;
     --selection-background-color: hsl(256deg 100% 30%);
 
@@ -113,6 +126,33 @@ html {
 html {
   color: var(--color-text);
   font-family: var(--font-family), sans-serif;
+  background: var(--color-backdrop);
+}
+
+body {
+  min-height: 100vh;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+}
+
+body::before {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 50vh;
+  background: linear-gradient(
+    to top,
+    var(--color-backdrop),
+    var(--color-backdrop-highlight)
+  );
+}
+
+body > main {
+  flex: 1;
 }
 
 em {
@@ -130,4 +170,9 @@ a {
   text-decoration-color: var(--color-primary);
   text-decoration-thickness: 2px;
   text-underline-offset: 0.125em;
+  font-weight: 500;
+  transition: all 200ms;
+}
+a:hover {
+  text-underline-offset: 0.175em;
 }

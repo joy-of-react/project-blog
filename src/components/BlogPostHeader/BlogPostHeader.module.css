@@ -12,9 +12,7 @@
 .content {
   position: relative;
   width: 100%;
-  max-width: calc(
-    var(--content-width) + 16px * 2
-  );
+  max-width: var(--content-width);
   padding: 16px;
   padding-top: calc(100px + 8vw);
   padding-bottom: 64px;
