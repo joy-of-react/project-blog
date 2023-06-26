@@ -4,6 +4,7 @@ import clsx from 'clsx';
 
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import ThemeHydration from '@/components/ThemeHydration';
 import './styles.css';
 
 const mainFont = Work_Sans({
@@ -26,6 +27,7 @@ function RootLayout({ children }) {
         <Header />
         <main>{children}</main>
         <Footer />
+        <ThemeHydration />
       </body>
     </html>
   );
