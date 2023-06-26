@@ -19,23 +19,19 @@
 }
 
 .content h1 {
-  font-size: 1.75rem;
   margin-bottom: 0.5rem;
 }
 .content p {
   font-size: 1.125rem;
   color: var(--color-decorative-900);
   margin-bottom: 0px;
-  font-weight: 300;
+  font-weight: 400;
 }
 .content time {
   font-weight: 500;
 }
 
 @media (min-width: 35rem) {
-  .content h1 {
-    font-size: 2.25rem;
-  }
   .content p {
     font-size: 1.25rem;
   }

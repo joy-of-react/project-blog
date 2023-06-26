@@ -1,12 +1,12 @@
 import React from 'react';
-import { Figtree, Overpass_Mono } from 'next/font/google';
+import { Work_Sans, Overpass_Mono } from 'next/font/google';
 import clsx from 'clsx';
 
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import './styles.css';
 
-const mainFont = Figtree({
+const mainFont = Work_Sans({
   subsets: ['latin'],
   display: 'fallback',
   weight: 'variable',

@@ -13,7 +13,7 @@ function BlogLayout({ postSlug, frontmatter, children }) {
         publishedOn={frontmatter.publishedOn}
         imageSrc={heroImageSrc}
       />
-      <div className={styles.pageWrapper}>{children}</div>
+      <div className={styles.page}>{children}</div>
     </article>
   );
 }

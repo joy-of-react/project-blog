@@ -2,7 +2,8 @@
   display: block;
   text-decoration: none;
   font-size: 1.25rem;
-  font-weight: 700;
+  font-weight: 600;
+  letter-spacing: -0.5px;
   transition: all 400ms;
   will-change: transform;
 }
@@ -17,9 +18,8 @@
   .wrapper:hover {
     font-weight: 900;
     transition: all 100ms;
-    transform: translateX(-2px);
-    color: hsl(330deg 100% 45%);
-    color: oklch(0.66 0.3 5.52);
+    transform: translateX(-1px);
+    color: var(--color-secondary);
   }
 }
 

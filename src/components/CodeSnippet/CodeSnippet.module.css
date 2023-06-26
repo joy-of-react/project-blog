@@ -2,11 +2,11 @@
   --inset-by: 24px;
   border-radius: 0px !important;
   margin: 0px calc(var(--inset-by) * -1) 32px !important;
-  border: 1px solid var(--syntax-border-color);
+  border: 1px solid var(--embedded-border-color);
 }
 .wrapper pre {
   padding: var(--inset-by) !important;
-  background: var(--syntax-bg) !important;
+  background: var(--embedded-bg) !important;
 }
 .wrapper code {
   font-family: var(--font-family-mono);

@@ -1,0 +1,18 @@
+.wrapper {
+  padding: var(--viewport-padding);
+  margin-inline: calc(var(--viewport-padding) * -1);
+  background: var(--embedded-bg);
+  border: 1px solid var(--embedded-border-color);
+}
+
+@media (min-width: 35rem) {
+  .wrapper {
+    border-radius: 8px !important;
+  }
+}
+
+@media (min-width: 56rem) {
+  .wrapper {
+    border-radius: 8px !important;
+  }
+}

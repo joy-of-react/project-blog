@@ -45,15 +45,23 @@ h6 {
 html {
   --color-text: hsl(0deg 0% 5%);
   --color-primary: hsl(256deg 100% 50%);
+  --color-secondary-legacy: hsl(330deg 100% 50%);
+  --color-secondary-modern: oklch(0.66 0.3 6);
+  --color-secondary: var(
+    --color-secondary-modern,
+    var(--color-secondary-legacy)
+  );
 
   --color-decorative-100: hsl(50deg 100% 94%);
   --color-decorative-300: hsl(50deg 100% 85%);
   --color-decorative-500: hsl(50deg 100% 70%);
+  --color-decorative-600: hsl(50deg 90% 60%);
   --color-decorative-700: hsl(50deg 50% 50%);
   --color-decorative-900: hsl(50deg 70% 25%);
   --color-decorative: var(--color-decorative-500);
-  --syntax-bg: hsl(256deg 20% 4%);
-  --syntax-border-color: transparent;
+  --embedded-bg: hsl(256deg 20% 4%);
+  --embedded-border-color: transparent;
+  --inline-code-bg: hsl(45deg 74% 85%);
 
   --selection-text-color: black;
   --selection-background-color: hsl(50deg 100% 50%);
@@ -89,12 +97,14 @@ html {
     --color-decorative-100: hsl(256deg 20% 4%);
     --color-decorative-300: hsl(256deg 30% 15%);
     --color-decorative-500: hsl(256deg 40% 30%);
+    --color-decorative-600: hsl(256deg 40% 40%);
     --color-decorative-700: hsl(256deg 40% 50%);
     --color-decorative-900: hsl(256deg 50% 80%);
     --color-decorative: var(--color-decorative-500);
-    --syntax-border-color: var(--color-decorative-300);
+    --embedded-border-color: var(--color-decorative-300);
     --selection-text-color: white;
     --selection-background-color: hsl(256deg 100% 30%);
+    --inline-code-bg: hsl(256deg 50% 15%);
 
     --color-backdrop: var(--color-decorative-100);
     --color-backdrop-highlight: var(--color-decorative-500);
@@ -126,7 +136,8 @@ html {
 html {
   color: var(--color-text);
   font-family: var(--font-family), sans-serif;
-  background: var(--color-backdrop);
+  letter-spacing: -0.03125em;
+  background: var(--color-backdrop-highlight);
 }
 
 body {
@@ -134,12 +145,14 @@ body {
   min-height: 100svh;
   display: flex;
   flex-direction: column;
+  background: var(--color-backdrop);
+  border-bottom: 3px solid var(--color-decorative-600);
 }
 
 body::before {
   content: '';
   position: absolute;
-  z-index: -1;
+  z-index: 0;
   top: 0;
   left: 0;
   right: 0;
@@ -160,10 +173,24 @@ em {
 }
 code {
   font-family: var(--font-family-mono);
+  letter-spacing: -0.025em;
+}
+h1 {
+  font-size: 1.75rem;
+  font-weight: 650;
 }
 p {
   font-size: 1.25rem;
   margin-bottom: 1.5em;
+}
+p code {
+  display: inline-block;
+  font-size: 0.9em;
+  background: var(--inline-code-bg);
+  padding: 5px 6px 1.5px 6px;
+  margin: -0.25em -1px;
+  border-radius: 3px;
+  letter-spacing: -0.05em;
 }
 a {
   color: currentColor;
@@ -175,4 +202,10 @@ a {
 }
 a:hover {
   text-underline-offset: 0.175em;
+}
+
+@media (min-width: 35rem) {
+  h1 {
+    font-size: 2.25rem;
+  }
 }
