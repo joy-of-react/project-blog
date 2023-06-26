@@ -1,5 +1,5 @@
 import React from 'react';
-import { Figtree, Source_Code_Pro } from 'next/font/google';
+import { Figtree, Overpass_Mono } from 'next/font/google';
 import clsx from 'clsx';
 
 import Header from '@/components/Header';
@@ -12,7 +12,7 @@ const mainFont = Figtree({
   weight: 'variable',
   variable: '--font-family',
 });
-const monoFont = Source_Code_Pro({
+const monoFont = Overpass_Mono({
   subsets: ['latin'],
   display: 'fallback',
   weight: 'variable',
