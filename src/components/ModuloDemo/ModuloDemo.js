@@ -7,60 +7,77 @@ import Card from '@/components/Card';
 
 import styles from './ModuloDemo.module.css';
 
-const TOTAL_COLS = 14;
-
 function ModuloDemo({ dividend, divisor }) {
-  const [numAdded, setNumAdded] = React.useState(0);
+  const [numOfBlocks, setNumOfBlocks] = React.useState(0);
 
-  const segmentWidth = divisor * (1 / TOTAL_COLS) * 100;
+  const numOfBlocksInHolder = Math.min(numOfBlocks, dividend);
+  const numOfBlocksInSpillover = Math.max(numOfBlocks - dividend, 0);
+
+  const blockHolderWidth = (dividend / 14) * 100;
+  const spilloverWidth = (divisor / 14) * 100;
+
+  const totalCols = dividend + divisor;
 
   return (
-    <Card className={styles.wrapper} style={{ '--total-cols': TOTAL_COLS }}>
+    <Card className={styles.wrapper} style={{ '--total-cols': totalCols }}>
       <p className={styles.operation}>
         {dividend} % {divisor}
       </p>
-      <div className={styles.barWrapper}>
-        {range(0, TOTAL_COLS).map((index) => {
-          const colNum = index + 1;
-
-          return (
-            <div
-              key={colNum}
-              className={clsx(
-                styles.col,
-                colNum === dividend && styles.colLimit
-              )}
-            >
-              <div className={styles.colLabel}>{colNum}</div>
-            </div>
-          );
-        })}
-
-        <div
-          className={styles.blocksWrapper}
-          style={{
-            '--block-width': `calc(${100 / TOTAL_COLS}% - 2px)`,
-          }}
-        >
-          {range(0, numAdded * divisor).map((index) => {
-            const colNum = index + 1;
-
+      <div className={styles.demoArea}>
+        <div className={styles.background}>
+          {range(totalCols).map((index) => {
+            const isAtBreak = index + 1 === dividend;
             return (
-              <div key={index} className={styles.block}>
-                {colNum}
-              </div>
+              <div
+                key={index}
+                className={styles.col}
+                style={isAtBreak && { opacity: 0 }}
+              />
             );
           })}
+        </div>
+        <div
+          className={styles.blockHolder}
+          style={{
+            width: blockHolderWidth + '%',
+            '--block-width': 100 / dividend + '%',
+            aspectRatio: `${dividend} / 1`,
+          }}
+        >
+          {range(numOfBlocksInHolder).map((index) => (
+            <Block key={index} index={index} />
+          ))}
+        </div>
+        <div
+          className={styles.spillover}
+          style={{
+            width: spilloverWidth + '%',
+            '--block-width': 100 / divisor + '%',
+          }}
+        >
+          {range(numOfBlocksInSpillover).map((index) => (
+            <Block key={index} index={numOfBlocksInHolder + index} />
+          ))}
         </div>
       </div>
 
       <div className={styles.actions}>
-        <button onClick={() => setNumAdded(numAdded - 1)}>
+        <button onClick={() => setNumOfBlocks(numOfBlocks - divisor)}>
           Remove {divisor}
         </button>
-        <button onClick={() => setNumAdded(numAdded + 1)}>Add {divisor}</button>
+        <button onClick={() => setNumOfBlocks(numOfBlocks + divisor)}>
+          Add {divisor}
+        </button>
       </div>
     </Card>
+  );
+}
+
+function Block({ index }) {
+  return (
+    <div className={styles.blockWrapper}>
+      <div className={styles.block}>{index + 1}</div>
+    </div>
   );
 }
 

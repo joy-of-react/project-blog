@@ -8,60 +8,55 @@
   text-align: center;
 }
 
-.barWrapper {
+.demoArea {
   position: relative;
   display: flex;
   max-width: 700px;
-  height: 50px;
   margin: 0 auto;
-  border-left: 2px solid;
-  border-bottom: 2px solid;
-  border-radius: 0 0 0 4px;
 }
 
-.col {
-  position: relative;
-  flex: 1;
-}
-
-.col::before {
-  content: '';
-  position: absolute;
-  bottom: -8px;
-  right: -2.5px;
-  width: 3px;
-  height: 8px;
-  border-radius: 0 0 100px 100px;
-  background: white;
-}
-
-.colLabel {
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  transform: translate(50%, 150%);
-}
-.colLimit {
-  border-right: 1px dashed;
-}
-
-.blocksWrapper {
+.background {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
   display: flex;
-  align-items: center;
-  gap: 2px;
 }
-.block {
-  border: 2px solid white;
-  width: var(--block-width);
-  aspect-ratio: 1 / 1;
-  display: grid;
-  place-content: center;
+.col {
+  flex: 1;
+  border-right: 1px dashed;
+  transform: translateX(0.5px);
+  opacity: 0.25;
+}
+
+.blockHolder {
+  position: relative;
+  display: flex;
+  outline: 2px solid;
+  outline-offset: 2px;
   border-radius: 4px;
-  transform: translateX(1px);
+}
+.spillover {
+  display: flex;
+}
+
+.blockWrapper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: var(--block-width);
+  height: 100%;
+  padding: 4px;
+}
+
+.block {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid pink;
 }
 
 .actions {
