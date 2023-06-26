@@ -4,7 +4,7 @@ import clsx from 'clsx';
 
 import styles from './Hero.module.css';
 
-function Hero({ title, publishedOn, imageSrc, className, ...delegated }) {
+function Hero({ title, publishedOn, className, ...delegated }) {
   const humanizedDate = format(new Date(publishedOn), 'MMMM do, yyyy');
 
   return (

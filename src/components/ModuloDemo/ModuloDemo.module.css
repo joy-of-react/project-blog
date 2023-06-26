@@ -1,3 +1,52 @@
 .wrapper {
-  
+}
+
+.operation {
+  font-size: 3rem;
+  font-family: var(--font-family-mono);
+  margin-bottom: 8px;
+  text-align: center;
+}
+
+.barWrapper {
+  position: relative;
+  display: flex;
+  gap: 2px;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.cell {
+  width: calc(1 / var(--total-cols) * 100%);
+  aspect-ratio: 1 / 1;
+  border: 2px dashed hsl(0deg 0% 100% / 0.2);
+  border-radius: 2px;
+}
+.cell:not(:first-child) {
+  /* border-left: none; */
+}
+.cell.dividend {
+  border-color: white;
+}
+
+.addedSegmentWrapper {
+  position: absolute;
+  inset: 4px;
+  display: flex;
+  gap: 2px;
+}
+
+.addedSegment {
+  position: relative;
+  height: 100%;
+  width: calc(var(--width) - 2px);
+  background-color: hsl(0deg 0% 100% / 0.2);
+  border-radius: 2px;
+}
+
+.actions {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 24px;
 }

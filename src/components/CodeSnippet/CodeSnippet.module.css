@@ -1,11 +1,10 @@
 .wrapper {
-  --inset-by: 24px;
   border-radius: 0px !important;
-  margin: 0px calc(var(--inset-by) * -1) 32px !important;
+  margin: 0px calc(var(--viewport-padding) * -1) 64px !important;
   border: 1px solid var(--embedded-border-color);
 }
 .wrapper pre {
-  padding: var(--inset-by) !important;
+  padding: var(--viewport-padding) !important;
   background: var(--embedded-bg) !important;
 }
 .wrapper code {

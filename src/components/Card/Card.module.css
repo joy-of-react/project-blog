@@ -1,8 +1,11 @@
 .wrapper {
   padding: var(--viewport-padding);
-  margin-inline: calc(var(--viewport-padding) * -1);
+  margin-left: calc(var(--viewport-padding) * -1);
+  margin-right: calc(var(--viewport-padding) * -1);
+  margin-bottom: 64px;
   background: var(--embedded-bg);
   border: 1px solid var(--embedded-border-color);
+  color: var(--embedded-color);
 }
 
 @media (min-width: 35rem) {

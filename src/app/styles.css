@@ -59,6 +59,7 @@ html {
   --color-decorative-700: hsl(50deg 50% 50%);
   --color-decorative-900: hsl(50deg 70% 25%);
   --color-decorative: var(--color-decorative-500);
+  --embedded-color: white;
   --embedded-bg: hsl(256deg 20% 4%);
   --embedded-border-color: transparent;
   --inline-code-bg: hsl(45deg 74% 85%);
@@ -92,8 +93,7 @@ html {
 @media (prefers-color-scheme: dark) {
   html {
     --color-text: hsl(0deg 0% 100%);
-    --color-text-highlight: hsl(260deg 100% 80%);
-    --color-primary: hsl(256deg 20% 10%);
+    --color-primary: hsl(50deg 100% 50%);
     --color-decorative-100: hsl(256deg 20% 4%);
     --color-decorative-300: hsl(256deg 30% 15%);
     --color-decorative-500: hsl(256deg 40% 30%);
