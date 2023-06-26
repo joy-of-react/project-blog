@@ -21,23 +21,34 @@ function ModuloDemo({ dividend, divisor }) {
       </p>
       <div className={styles.barWrapper}>
         {range(0, TOTAL_COLS).map((index) => {
-          const isWithinDividend = index < dividend;
+          const colNum = index + 1;
 
           return (
             <div
-              key={index}
-              className={clsx(styles.cell, isWithinDividend && styles.dividend)}
-            ></div>
+              key={colNum}
+              className={clsx(
+                styles.col,
+                colNum === dividend && styles.colLimit
+              )}
+            >
+              <div className={styles.colLabel}>{colNum}</div>
+            </div>
           );
         })}
-        <div className={styles.addedSegmentWrapper}>
-          {range(numAdded).map((index) => {
+
+        <div
+          className={styles.blocksWrapper}
+          style={{
+            '--block-width': `calc(${100 / TOTAL_COLS}% - 2px)`,
+          }}
+        >
+          {range(0, numAdded * divisor).map((index) => {
+            const colNum = index + 1;
+
             return (
-              <div
-                key={index}
-                className={styles.addedSegment}
-                style={{ '--width': segmentWidth + '%' }}
-              />
+              <div key={index} className={styles.block}>
+                {colNum}
+              </div>
             );
           })}
         </div>

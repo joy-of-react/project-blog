@@ -11,42 +11,62 @@
 .barWrapper {
   position: relative;
   display: flex;
-  gap: 2px;
   max-width: 700px;
+  height: 50px;
   margin: 0 auto;
+  border-left: 2px solid;
+  border-bottom: 2px solid;
+  border-radius: 0 0 0 4px;
 }
 
-.cell {
-  width: calc(1 / var(--total-cols) * 100%);
-  aspect-ratio: 1 / 1;
-  border: 2px dashed hsl(0deg 0% 100% / 0.2);
-  border-radius: 2px;
-}
-.cell:not(:first-child) {
-  /* border-left: none; */
-}
-.cell.dividend {
-  border-color: white;
+.col {
+  position: relative;
+  flex: 1;
 }
 
-.addedSegmentWrapper {
+.col::before {
+  content: '';
   position: absolute;
-  inset: 4px;
+  bottom: -8px;
+  right: -2.5px;
+  width: 3px;
+  height: 8px;
+  border-radius: 0 0 100px 100px;
+  background: white;
+}
+
+.colLabel {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  transform: translate(50%, 150%);
+}
+.colLimit {
+  border-right: 1px dashed;
+}
+
+.blocksWrapper {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
   display: flex;
+  align-items: center;
   gap: 2px;
 }
-
-.addedSegment {
-  position: relative;
-  height: 100%;
-  width: calc(var(--width) - 2px);
-  background-color: hsl(0deg 0% 100% / 0.2);
-  border-radius: 2px;
+.block {
+  border: 2px solid white;
+  width: var(--block-width);
+  aspect-ratio: 1 / 1;
+  display: grid;
+  place-content: center;
+  border-radius: 4px;
+  transform: translateX(1px);
 }
 
 .actions {
   display: flex;
   justify-content: center;
   gap: 16px;
-  margin-top: 24px;
+  margin-top: 64px;
 }
