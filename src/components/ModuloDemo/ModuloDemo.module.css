@@ -9,10 +9,22 @@
 }
 
 .demoArea {
+  --gap: 6px;
   position: relative;
   display: flex;
-  max-width: 700px;
+  max-width: calc(700px + var(--gap));
+  gap: var(--gap);
   margin: 0 auto;
+}
+
+.blockGroup {
+  position: relative;
+  display: flex;
+}
+.blockHolder {
+  outline: 2px solid;
+  outline-offset: 2px;
+  border-radius: 4px;
 }
 
 .background {
@@ -27,15 +39,9 @@
   border-right: 1px dashed;
   transform: translateX(0.5px);
   opacity: 0.25;
+  margin: 4px 0;
 }
 
-.blockHolder {
-  position: relative;
-  display: flex;
-  outline: 2px solid;
-  outline-offset: 2px;
-  border-radius: 4px;
-}
 .spillover {
   display: flex;
 }
@@ -56,7 +62,23 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 2px solid pink;
+  border: 6px solid hsl(0deg 0% 70%);
+  background: hsl(0deg 0% 100%);
+  border-top-color: hsl(0deg 0% 85%);
+  border-bottom-color: hsl(0deg 0% 50%);
+  color: black;
+  border-radius: 2px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: default;
+  user-select: none;
+}
+
+.blockSpillover .block {
+  background: hsl(50deg 100% 90%);
+  border-color: hsl(50deg 80% 50%);
+  border-top-color: hsl(50deg 100% 80%);
+  border-bottom-color: hsl(50deg 60% 30%);
 }
 
 .actions {

@@ -13,6 +13,10 @@ function ModuloDemo({ dividend, divisor }) {
   const numOfBlocksInHolder = Math.min(numOfBlocks, dividend);
   const numOfBlocksInSpillover = Math.max(numOfBlocks - dividend, 0);
 
+  const blocksInHolder = range(Math.min(numOfBlocks, dividend));
+  const blocksInSpillover =
+    numOfBlocks > dividend ? range(dividend, numOfBlocks) : [];
+
   const blockHolderWidth = (dividend / 14) * 100;
   const spilloverWidth = (divisor / 14) * 100;
 
@@ -24,18 +28,19 @@ function ModuloDemo({ dividend, divisor }) {
         {dividend} % {divisor}
       </p>
       <div className={styles.demoArea}>
-        <div className={styles.background}>
-          {range(totalCols).map((index) => {
-            const isAtBreak = index + 1 === dividend;
-            return (
-              <div
-                key={index}
-                className={styles.col}
-                style={isAtBreak && { opacity: 0 }}
-              />
-            );
-          })}
-        </div>
+        <BlockGroup
+          type="holder"
+          width={(dividend / totalCols) * 100 + '%'}
+          numOfSlots={dividend}
+          blocks={blocksInHolder}
+        />
+        <BlockGroup
+          type="spillover"
+          width={(divisor / totalCols) * 100 + '%'}
+          numOfSlots={divisor}
+          blocks={blocksInSpillover}
+        />
+        {/*
         <div
           className={styles.blockHolder}
           style={{
@@ -58,7 +63,7 @@ function ModuloDemo({ dividend, divisor }) {
           {range(numOfBlocksInSpillover).map((index) => (
             <Block key={index} index={numOfBlocksInHolder + index} />
           ))}
-        </div>
+        </div> */}
       </div>
 
       <div className={styles.actions}>
@@ -73,10 +78,44 @@ function ModuloDemo({ dividend, divisor }) {
   );
 }
 
-function Block({ index }) {
+function BlockGroup({
+  // "holder" | "spillover"
+  type,
+  width,
+  numOfSlots,
+  blocks,
+}) {
   return (
-    <div className={styles.blockWrapper}>
-      <div className={styles.block}>{index + 1}</div>
+    <div
+      className={clsx(
+        styles.blockGroup,
+        type === 'holder' ? styles.blockHolder : styles.blockSpillover
+      )}
+      style={{
+        width,
+        '--block-width': 100 / numOfSlots + '%',
+        aspectRatio: `${numOfSlots} / 1`,
+      }}
+    >
+      <div className={styles.background}>
+        {range(numOfSlots).map((colIndex) => {
+          const isLastHolderColumn =
+            colIndex === numOfSlots - 1 && type === 'holder';
+
+          return (
+            <div
+              key={colIndex}
+              className={styles.col}
+              style={isLastHolderColumn ? { opacity: 0 } : undefined}
+            />
+          );
+        })}
+      </div>
+      {blocks.map((index) => (
+        <div key={index} className={styles.blockWrapper}>
+          <div className={styles.block}>{index + 1}</div>
+        </div>
+      ))}
     </div>
   );
 }
