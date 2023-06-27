@@ -21,6 +21,9 @@ function ModuloDemo({ dividend, divisor }) {
 
   const totalCols = dividend + divisor;
 
+  const removeBtnDisabled = numOfBlocks <= 0;
+  const addBtnDisabled = numOfBlocks > dividend;
+
   return (
     <Card
       className={styles.wrapper}
@@ -71,17 +74,31 @@ function ModuloDemo({ dividend, divisor }) {
       <div className={styles.actions}>
         <Button
           className={clsx(styles.actionButton)}
-          onClick={() =>
-            setNumOfBlocks(numOfBlocks - divisor)
-          }
+          disabled={removeBtnDisabled}
+          onClick={() => {
+            if (removeBtnDisabled) {
+              alert(
+                "There aren't any blocks to remove yet! Click the “Add” button first."
+              );
+              return;
+            }
+            setNumOfBlocks(numOfBlocks - divisor);
+          }}
         >
           Remove {divisor}
         </Button>
         <Button
           className={clsx(styles.actionButton)}
-          onClick={() =>
-            setNumOfBlocks(numOfBlocks + divisor)
-          }
+          disabled={addBtnDisabled}
+          onClick={() => {
+            if (addBtnDisabled) {
+              alert(
+                `We can't fit any more chunks of ${divisor} blocks into the provided number.`
+              );
+              return;
+            }
+            setNumOfBlocks(numOfBlocks + divisor);
+          }}
         >
           Add {divisor}
         </Button>

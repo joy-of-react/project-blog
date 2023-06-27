@@ -3,10 +3,19 @@ import clsx from 'clsx';
 
 import styles from './Button.module.css';
 
-function Button({ className, children, ...delegated }) {
+function Button({
+  className,
+  disabled,
+  children,
+  ...delegated
+}) {
   return (
     <button
-      className={clsx(styles.wrapper, className)}
+      className={clsx(
+        styles.wrapper,
+        className,
+        disabled && styles.pseudoDisabled
+      )}
       {...delegated}
     >
       <span className={styles.shadow}></span>

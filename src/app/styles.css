@@ -61,15 +61,15 @@ html {
 /* GLOBAL STYLES */
 ::selection {
   background-color: var(
-    --selection-background-color
+    --color-selection-background
   ) !important;
-  color: var(--selection-text-color) !important;
+  color: var(--color-selection-text) !important;
   background-image: none !important;
   -webkit-text-fill-color: var(
-    --selection-text-color
+    --color-selection-text
   ) !important;
   -moz-text-fill-color: var(
-    --selection-text-color
+    --color-selection-text
   ) !important;
   background-image: none !important;
   background-clip: revert !important;
@@ -130,7 +130,7 @@ p {
 p code {
   display: inline-block;
   font-size: 0.9em;
-  background: var(--inline-code-bg);
+  background: var(--color-inline-code-bg);
   padding: 5px 6px 1.5px 6px;
   margin: -0.25em -1px;
   border-radius: 3px;

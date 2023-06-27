@@ -47,27 +47,42 @@
   transform: translateY(-4px);
   transition: transform 600ms cubic-bezier(0.3, 0.7, 0.4, 1);
 }
-.wrapper:hover {
+.wrapper:not(.pseudoDisabled):hover {
   filter: brightness(110%);
 }
-.wrapper:hover .front {
+.wrapper:not(.pseudoDisabled):hover .front {
   transform: translateY(-6px);
   transition: transform 250ms
     cubic-bezier(0.3, 0.7, 0.4, 1.5);
 }
-.wrapper:active .front {
+.wrapper:not(.pseudoDisabled):active .front {
   transform: translateY(-2px);
   transition: transform 34ms;
 }
-.wrapper:hover .shadow {
+.wrapper:not(.pseudoDisabled):hover .shadow {
   transform: translateY(4px);
   transition: transform 250ms
     cubic-bezier(0.3, 0.7, 0.4, 1.5);
 }
-.wrapper:active .shadow {
+.wrapper:not(.pseudoDisabled):active .shadow {
   transform: translateY(1px);
   transition: transform 34ms;
 }
 .wrapper:focus:not(:focus-visible) {
   outline: none;
+}
+
+/*
+  This button should never be explicitly disabled. Instead,
+  we apply styles to make clear that the button is lightly
+  discouraged, but can still be clicked.
+
+  More info:
+  https://adamsilver.io/blog/the-problem-with-disabled-buttons-and-what-to-do-instead/
+*/
+.pseudoDisabled {
+  filter: saturate(0.1) contrast(0.55) brightness(150%);
+}
+html[data-color-mode='dark'] .pseudoDisabled {
+  filter: saturate(0.25) brightness(80%);
 }

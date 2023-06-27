@@ -1,7 +1,7 @@
 export const LIGHT_COLORS = {
   text: 'hsl(0deg 0% 5%)',
-  'primary-100': 'hsl(256deg 100% 90%)',
-  'primary-300': 'hsl(256deg 100% 70%)',
+  'primary-100': 'hsl(240deg 100% 90%)',
+  'primary-300': 'hsl(242deg 100% 70%)',
   'primary-500': 'hsl(245deg 100% 60%)',
   'primary-700': 'hsl(250deg 100% 33%)',
   'primary-900': 'hsl(256deg 100% 20%)',
@@ -57,8 +57,8 @@ export const DARK_COLORS = {
 LIGHT_COLORS.primary = LIGHT_COLORS['primary-500'];
 LIGHT_COLORS.secondary = LIGHT_COLORS['secondary-500'];
 LIGHT_COLORS['inline-code-bg'] = 'hsl(45deg 74% 85%)';
-LIGHT_COLORS['selection-text-color'] = 'black';
-LIGHT_COLORS['selection-background-color'] =
+LIGHT_COLORS['selection-text'] = 'black';
+LIGHT_COLORS['selection-background'] =
   LIGHT_COLORS['decorative-700'];
 LIGHT_COLORS['backdrop'] = LIGHT_COLORS['decorative-500'];
 LIGHT_COLORS['backdrop-highlight'] =
@@ -71,9 +71,9 @@ LIGHT_COLORS['card-border'] = 'transparent';
 
 DARK_COLORS.primary = DARK_COLORS['primary-500'];
 DARK_COLORS.secondary = DARK_COLORS['secondary-500'];
-DARK_COLORS['inline-code-bg'] = 'hsl(256deg 50% 15%)';
-DARK_COLORS['selection-text-color'] = 'white';
-DARK_COLORS['selection-background-color'] =
+DARK_COLORS['inline-code-bg'] = 'hsl(256deg 30% 22%)';
+DARK_COLORS['selection-text'] = 'white';
+DARK_COLORS['selection-background'] =
   'hsl(256deg 100% 30%)';
 DARK_COLORS['backdrop'] = DARK_COLORS['decorative-100'];
 DARK_COLORS['backdrop-highlight'] =

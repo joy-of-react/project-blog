@@ -71,25 +71,31 @@
   user-select: none;
 }
 
-@keyframes brighten {
+@keyframes fade {
+  from {
+    opacity: 0;
+  }
+}
+@keyframes brightnessFade {
   from {
     filter: brightness(200%);
   }
 }
 
 .blockSpillover .block {
-  background: var(--color-decorative-100);
-  border-color: var(--color-decorative-500);
-  border-top-color: var(--color-decorative-300);
-  border-bottom-color: var(--color-decorative-800);
-  animation: brighten 1000ms;
+  background: var(--color-primary-100);
+  border-color: var(--color-primary-500);
+  border-top-color: var(--color-primary-300);
+  border-bottom-color: var(--color-primary-700);
+  animation: fade 1000ms, brightnessFade 600ms;
 }
 
 .actions {
   display: flex;
   justify-content: center;
   gap: 8px;
-  margin-top: 64px;
+  margin-top: 48px;
+  margin-bottom: 32px;
 }
 .actionButton {
   width: 10rem;
@@ -101,7 +107,7 @@
   modes. I still want the top border to be the lightest border,
   for example, so that it simulates a light source above.
 */
-html[data-color-mode='dark'] .block {
+html[data-color-mode='dark'] .blockHolder .block {
   background: var(--color-gray-900);
   border-color: var(--color-gray-500);
   border-top-color: var(--color-gray-700);
@@ -109,8 +115,10 @@ html[data-color-mode='dark'] .block {
   color: var(--color-gray-100);
 }
 html[data-color-mode='dark'] .blockSpillover .block {
-  background: var(--color-decorative-900);
-  border-color: var(--color-decorative-700);
-  border-top-color: var(--color-decorative-800);
-  border-bottom-color: var(--color-decorative-500);
+  color: var(--color-primary-contrast);
+  background: var(--color-primary-100);
+  border-color: var(--color-primary-700);
+  border-top-color: var(--color-primary-300);
+  border-bottom-color: var(--color-primary-500);
+  animation: fade 600ms, brightnessFade 1000ms;
 }
