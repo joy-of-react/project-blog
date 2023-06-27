@@ -35,7 +35,7 @@ LIGHT_COLORS['backdrop-highlight'] =
   LIGHT_COLORS['decorative-300'];
 LIGHT_COLORS['page-background'] =
   LIGHT_COLORS['decorative-100'];
-DARK_COLORS['page-border'] = 'transparent';
+LIGHT_COLORS['page-border'] = 'transparent';
 
 DARK_COLORS['embedded-text'] = 'white';
 DARK_COLORS['embedded-bg'] = DARK_COLORS['decorative-100'];
@@ -49,7 +49,7 @@ DARK_COLORS['backdrop'] = DARK_COLORS['decorative-100'];
 DARK_COLORS['backdrop-highlight'] =
   DARK_COLORS['decorative-500'];
 DARK_COLORS['page-background'] = 'transparent';
-DARK_COLORS['page-border'] = DARK_COLORS['decorative-300'];
+DARK_COLORS['page-border'] = 'hsl(256deg 50% 30% / 0.35)';
 
 export const LIGHT_SHADOWS = {
   page: `

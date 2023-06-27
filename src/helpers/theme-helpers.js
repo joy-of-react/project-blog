@@ -33,6 +33,8 @@ export function dynamicallyChangeCssVars(theme) {
 
   const root = document.documentElement;
 
+  root.setAttribute('data-color-mode', theme);
+
   Object.entries(colors).forEach(([key, value]) => {
     root.style.setProperty(`--color-${key}`, value);
   });

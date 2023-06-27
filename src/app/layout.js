@@ -32,6 +32,7 @@ function RootLayout({ children }) {
       lang="en"
       className={clsx(mainFont.variable, monoFont.variable)}
       style={generateThemeStyleObject(theme)}
+      data-color-mode={theme}
     >
       <body>
         <Header theme={theme} />
