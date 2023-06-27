@@ -1,10 +1,7 @@
-.wrapper {
-}
-
 .operation {
   font-size: 3rem;
   font-family: var(--font-family-mono);
-  margin-bottom: 8px;
+  margin-bottom: 20px;
   text-align: center;
 }
 
@@ -36,9 +33,9 @@
 }
 .col {
   flex: 1;
-  border-right: 1px dashed;
+  border-right: 1px dashed var(--color-gray-500);
   transform: translateX(0.5px);
-  opacity: 0.25;
+  opacity: 0.5;
   margin: 4px 0;
 }
 
@@ -62,11 +59,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 6px solid hsl(0deg 0% 70%);
-  background: hsl(0deg 0% 100%);
-  border-top-color: hsl(0deg 0% 85%);
-  border-bottom-color: hsl(0deg 0% 50%);
-  color: black;
+  border: 6px solid var(--color-gray-300);
+  background: var(--color-gray-100);
+  border-top-color: var(--color-gray-200);
+  border-bottom-color: var(--color-gray-500);
+  color: var(--color-text);
   border-radius: 2px;
   font-size: 0.875rem;
   font-weight: 600;
@@ -74,11 +71,18 @@
   user-select: none;
 }
 
+@keyframes brighten {
+  from {
+    filter: brightness(200%);
+  }
+}
+
 .blockSpillover .block {
-  background: hsl(50deg 100% 90%);
-  border-color: hsl(50deg 80% 50%);
-  border-top-color: hsl(50deg 100% 80%);
-  border-bottom-color: hsl(50deg 60% 30%);
+  background: var(--color-decorative-100);
+  border-color: var(--color-decorative-500);
+  border-top-color: var(--color-decorative-300);
+  border-bottom-color: var(--color-decorative-800);
+  animation: brighten 1000ms;
 }
 
 .actions {
@@ -86,4 +90,23 @@
   justify-content: center;
   gap: 16px;
   margin-top: 64px;
+}
+
+/*
+  The blocks should look relatively consistent across light/dark
+  modes. I still want the top border to be the lightest border,
+  for example, so that it simulates a light source above.
+*/
+html[data-color-mode='dark'] .block {
+  background: var(--color-gray-900);
+  border-color: var(--color-gray-500);
+  border-top-color: var(--color-gray-700);
+  border-bottom-color: var(--color-gray-300);
+  color: var(--color-gray-100);
+}
+html[data-color-mode='dark'] .blockSpillover .block {
+  background: var(--color-decorative-900);
+  border-color: var(--color-decorative-700);
+  border-top-color: var(--color-decorative-800);
+  border-bottom-color: var(--color-decorative-500);
 }

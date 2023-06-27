@@ -22,7 +22,6 @@
   margin: 0 auto;
   padding: 64px var(--viewport-padding) 32px;
   background: var(--color-page-background);
-  border: 1px solid var(--color-page-border);
   box-shadow: var(--shadow-page);
 }
 
@@ -32,6 +31,8 @@
 
 @media (min-width: 80rem) {
   .page {
+    border: 1px solid var(--color-page-border);
+
     border-radius: 8px;
   }
 }

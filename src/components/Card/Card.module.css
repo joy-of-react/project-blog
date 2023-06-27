@@ -3,9 +3,9 @@
   margin-left: calc(var(--viewport-padding) * -1);
   margin-right: calc(var(--viewport-padding) * -1);
   margin-bottom: 64px;
-  background: var(--color-embedded-bg);
-  border: 1px solid var(--color-embedded-border-color);
-  color: var(--color-embedded-text);
+  background: var(--color-card-background);
+  border: 1px solid var(--color-card-border);
+  box-shadow: var(--shadow-card);
 }
 
 @media (min-width: 35rem) {

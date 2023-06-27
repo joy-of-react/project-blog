@@ -1,13 +1,14 @@
 import React from 'react';
 import { Code } from 'bright';
 
+import theme from './theme';
 import styles from './CodeSnippet.module.css';
 
 function CodeSnippet({ language, children }) {
   return (
     <Code
       lang={language}
-      theme="material-ocean"
+      theme={theme}
       className={styles.wrapper}
     >
       {children}
