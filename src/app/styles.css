@@ -110,6 +110,7 @@ body::before {
 
 body > main {
   flex: 1;
+  position: relative;
 }
 
 em {
@@ -122,6 +123,18 @@ code {
 h1 {
   font-size: 1.75rem;
   font-weight: 650;
+}
+h2 {
+  font-size: 1.5rem;
+  margin-top: 2em;
+  margin-bottom: 0.5em;
+  font-weight: 600;
+}
+h3 {
+  font-size: 1.25rem;
+  margin-top: 2em;
+  margin-bottom: 0.5em;
+  font-weight: 500;
 }
 p {
   font-size: 1.25rem;
@@ -151,5 +164,12 @@ a:hover {
 @media (min-width: 35rem) {
   h1 {
     font-size: 2.25rem;
+  }
+
+  h2 {
+    font-size: 1.75rem;
+  }
+  h3 {
+    font-size: 1.5rem;
   }
 }

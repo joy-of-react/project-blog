@@ -79,10 +79,10 @@ DARK_COLORS['backdrop'] = DARK_COLORS['decorative-100'];
 DARK_COLORS['backdrop-highlight'] =
   DARK_COLORS['decorative-500'];
 DARK_COLORS['page-background'] = 'transparent';
-DARK_COLORS['page-border'] = 'hsl(256deg 50% 30% / 0.35)';
+DARK_COLORS['page-border'] = 'hsl(256deg 30% 50% / 0.2)';
 DARK_COLORS['card-background'] =
   DARK_COLORS['page-background'];
-DARK_COLORS['card-border'] = DARK_COLORS['decorative-300'];
+DARK_COLORS['card-border'] = DARK_COLORS['page-border'];
 
 export const LIGHT_SHADOWS = {
   page: `

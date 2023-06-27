@@ -45,30 +45,6 @@ function ModuloDemo({ dividend, divisor }) {
           numOfSlots={divisor}
           blocks={blocksInSpillover}
         />
-        {/*
-        <div
-          className={styles.blockHolder}
-          style={{
-            width: blockHolderWidth + '%',
-            '--block-width': 100 / dividend + '%',
-            aspectRatio: `${dividend} / 1`,
-          }}
-        >
-          {range(numOfBlocksInHolder).map((index) => (
-            <Block key={index} index={index} />
-          ))}
-        </div>
-        <div
-          className={styles.spillover}
-          style={{
-            width: spilloverWidth + '%',
-            '--block-width': 100 / divisor + '%',
-          }}
-        >
-          {range(numOfBlocksInSpillover).map((index) => (
-            <Block key={index} index={numOfBlocksInHolder + index} />
-          ))}
-        </div> */}
       </div>
 
       <div className={styles.actions}>

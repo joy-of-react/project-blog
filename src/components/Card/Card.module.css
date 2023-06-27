@@ -8,12 +8,6 @@
   box-shadow: var(--shadow-card);
 }
 
-@media (min-width: 35rem) {
-  .wrapper {
-    border-radius: 8px !important;
-  }
-}
-
 @media (min-width: 56rem) {
   .wrapper {
     border-radius: 8px !important;
