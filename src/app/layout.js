@@ -1,10 +1,12 @@
 import React from 'react';
 import { Work_Sans, Overpass_Mono } from 'next/font/google';
 import clsx from 'clsx';
+import { cookies } from 'next/headers';
+
+import { generateThemeStyleObject } from '@/helpers/theme-helpers';
 
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import ThemeHydration from '@/components/ThemeHydration';
 import './styles.css';
 
 const mainFont = Work_Sans({
@@ -21,13 +23,20 @@ const monoFont = Overpass_Mono({
 });
 
 function RootLayout({ children }) {
+  const cookieStore = cookies();
+  const savedTheme = cookieStore.get('theme');
+  const theme = savedTheme?.value || 'light';
+
   return (
-    <html lang="en" className={clsx(mainFont.variable, monoFont.variable)}>
+    <html
+      lang="en"
+      className={clsx(mainFont.variable, monoFont.variable)}
+      style={generateThemeStyleObject(theme)}
+    >
       <body>
-        <Header />
+        <Header theme={theme} />
         <main>{children}</main>
         <Footer />
-        <ThemeHydration />
       </body>
     </html>
   );

@@ -3,13 +3,17 @@ import clsx from 'clsx';
 import { Rss, Sun, Moon } from 'react-feather';
 
 import Logo from '@/components/Logo';
+import DarkLightToggle from '@/components/DarkLightToggle';
 
 import HeaderAction from './HeaderAction';
 import styles from './Header.module.css';
 
-function Header({ className, ...delegated }) {
+function Header({ theme, className, ...delegated }) {
   return (
-    <header className={clsx(styles.wrapper, className)} {...delegated}>
+    <header
+      className={clsx(styles.wrapper, className)}
+      {...delegated}
+    >
       <Logo />
 
       <div className={styles.actions}>
@@ -22,7 +26,7 @@ function Header({ className, ...delegated }) {
             }}
           />
         </HeaderAction>
-        <HeaderAction>
+        <HeaderAction as={DarkLightToggle} theme={theme}>
           <Sun size="1.5rem" />
         </HeaderAction>
       </div>

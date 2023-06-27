@@ -43,30 +43,6 @@ h6 {
 
 /* THEME VARIABLES */
 html {
-  --color-text: hsl(0deg 0% 5%);
-  --color-primary: hsl(256deg 100% 50%);
-  --color-secondary-legacy: hsl(330deg 100% 50%);
-  --color-secondary-modern: oklch(0.66 0.3 6);
-  --color-secondary: var(
-    --color-secondary-modern,
-    var(--color-secondary-legacy)
-  );
-
-  --color-decorative-100: hsl(50deg 100% 94%);
-  --color-decorative-300: hsl(50deg 100% 85%);
-  --color-decorative-500: hsl(50deg 100% 70%);
-  --color-decorative-600: hsl(50deg 90% 60%);
-  --color-decorative-700: hsl(50deg 50% 50%);
-  --color-decorative-900: hsl(50deg 70% 25%);
-  --color-decorative: var(--color-decorative-500);
-  --embedded-color: white;
-  --embedded-bg: hsl(256deg 20% 4%);
-  --embedded-border-color: transparent;
-  --inline-code-bg: hsl(45deg 74% 85%);
-
-  --selection-text-color: black;
-  --selection-background-color: hsl(50deg 100% 50%);
-
   --content-width: 55rem;
   --outer-content-width: 80rem;
   --viewport-padding: 16px;
@@ -74,44 +50,6 @@ html {
   --trimmed-content-width: calc(
     var(--content-width) - var(--viewport-padding) * 2
   );
-
-  /* Semantic colors */
-  --color-backdrop: var(--color-decorative);
-  --color-backdrop-highlight: var(--color-decorative-300);
-  --color-page-background: var(--color-decorative-100);
-  --color-sticky-header: var(--color-page-background);
-
-  /* prettier-ignore */
-  --page-shadow-large:
-    0px 1px 2px hsl(50deg 60% 50% / 0.25),
-    0px 3px 6px hsl(50deg 60% 50% / 0.25),
-    0px 9px 18px hsl(50deg 60% 50% / 0.25),
-    0px 18px 36px hsl(50deg 60% 50% / 0.25),
-    0px 54px 108px hsl(50deg 60% 50% / 0.25);
-}
-
-@media (prefers-color-scheme: dark) {
-  html {
-    --color-text: hsl(0deg 0% 100%);
-    --color-primary: hsl(50deg 100% 50%);
-    --color-decorative-100: hsl(256deg 20% 4%);
-    --color-decorative-300: hsl(256deg 30% 15%);
-    --color-decorative-500: hsl(256deg 40% 30%);
-    --color-decorative-600: hsl(256deg 40% 40%);
-    --color-decorative-700: hsl(256deg 40% 50%);
-    --color-decorative-900: hsl(256deg 50% 80%);
-    --color-decorative: var(--color-decorative-500);
-    --embedded-border-color: var(--color-decorative-300);
-    --selection-text-color: white;
-    --selection-background-color: hsl(256deg 100% 30%);
-    --inline-code-bg: hsl(256deg 50% 15%);
-
-    --color-backdrop: var(--color-decorative-100);
-    --color-backdrop-highlight: var(--color-decorative-500);
-    --color-page-background: transparent;
-    --page-shadow-large: none;
-    --color-sticky-header: var(--color-backdrop);
-  }
 }
 
 @media (min-width: 35rem) {
@@ -122,11 +60,17 @@ html {
 
 /* GLOBAL STYLES */
 ::selection {
-  background-color: var(--selection-background-color) !important;
+  background-color: var(
+    --selection-background-color
+  ) !important;
   color: var(--selection-text-color) !important;
   background-image: none !important;
-  -webkit-text-fill-color: var(--selection-text-color) !important;
-  -moz-text-fill-color: var(--selection-text-color) !important;
+  -webkit-text-fill-color: var(
+    --selection-text-color
+  ) !important;
+  -moz-text-fill-color: var(
+    --selection-text-color
+  ) !important;
   background-image: none !important;
   background-clip: revert !important;
   -webkit-background-clip: revert !important;

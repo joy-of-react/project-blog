@@ -4,17 +4,13 @@ import clsx from 'clsx';
 import styles from './HeaderAction.module.css';
 
 function HeaderAction({
-  href,
+  as: Element = 'button',
   className,
   children,
   ...delegated
 }) {
-  const Element =
-    typeof href === 'string' ? 'a' : 'button';
-
   return (
     <Element
-      href={href}
       className={clsx(styles.wrapper, className)}
       {...delegated}
     >
