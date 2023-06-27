@@ -1,7 +1,12 @@
 export const LIGHT_COLORS = {
   text: 'hsl(0deg 0% 5%)',
-  primary: 'hsl(256deg 100% 50%)',
-  secondary: 'oklch(0.66 0.3 6)',
+  'primary-100': 'hsl(256deg 100% 90%)',
+  'primary-300': 'hsl(256deg 100% 70%)',
+  'primary-500': 'hsl(245deg 100% 60%)',
+  'primary-700': 'hsl(250deg 100% 33%)',
+  'primary-900': 'hsl(256deg 100% 20%)',
+  'primary-contrast': 'white',
+  'secondary-500': 'oklch(0.66 0.3 6)',
   'decorative-100': 'hsl(50deg 100% 94%)',
   'decorative-200': 'hsl(50deg 100% 90%)',
   'decorative-300': 'hsl(50deg 100% 85%)',
@@ -23,7 +28,13 @@ export const LIGHT_COLORS = {
 export const DARK_COLORS = {
   text: 'hsl(0deg 0% 100%)',
   primary: 'hsl(50deg 100% 50%)',
-  secondary: LIGHT_COLORS.secondary,
+  'primary-100': 'hsl(50deg 100% 90%)',
+  'primary-300': 'hsl(50deg 100% 70%)',
+  'primary-500': 'hsl(50deg 100% 50%)',
+  'primary-700': 'hsl(50deg 100% 35%)',
+  'primary-900': 'hsl(50deg 100% 25%)',
+  'primary-contrast': 'black',
+  'secondary-500': 'TODO',
   'decorative-100': 'hsl(256deg 20% 4%)',
   'decorative-200': 'hsl(256deg 30% 10%)',
   'decorative-300': 'hsl(256deg 30% 15%)',
@@ -43,6 +54,8 @@ export const DARK_COLORS = {
 };
 
 // Add in semantic / special colors
+LIGHT_COLORS.primary = LIGHT_COLORS['primary-500'];
+LIGHT_COLORS.secondary = LIGHT_COLORS['secondary-500'];
 LIGHT_COLORS['inline-code-bg'] = 'hsl(45deg 74% 85%)';
 LIGHT_COLORS['selection-text-color'] = 'black';
 LIGHT_COLORS['selection-background-color'] =
@@ -56,6 +69,8 @@ LIGHT_COLORS['page-border'] = 'transparent';
 LIGHT_COLORS['card-background'] = LIGHT_COLORS['gray-0'];
 LIGHT_COLORS['card-border'] = 'transparent';
 
+DARK_COLORS.primary = DARK_COLORS['primary-500'];
+DARK_COLORS.secondary = DARK_COLORS['secondary-500'];
 DARK_COLORS['inline-code-bg'] = 'hsl(256deg 50% 15%)';
 DARK_COLORS['selection-text-color'] = 'white';
 DARK_COLORS['selection-background-color'] =

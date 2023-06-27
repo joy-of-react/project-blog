@@ -88,8 +88,12 @@
 .actions {
   display: flex;
   justify-content: center;
-  gap: 16px;
+  gap: 8px;
   margin-top: 64px;
+}
+.actionButton {
+  width: 10rem;
+  font-size: 1.125rem;
 }
 
 /*
