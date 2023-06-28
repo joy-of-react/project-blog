@@ -9,7 +9,7 @@ import SliderControl from '@/components/SliderControl';
 
 import styles from './DivisionGroupsDemo.module.css';
 
-function DivisionGroupsDemo({ dividend = 12 }) {
+function DivisionGroupsDemo({ dividend = 14 }) {
   const [divisor, setDivisor] = React.useState(1);
 
   const numPerGroup = Math.floor(dividend / divisor);
@@ -40,7 +40,7 @@ function DivisionGroupsDemo({ dividend = 12 }) {
       </header>
       <LayoutGroup>
         <div className={styles.demoWrapper}>
-          {/* <div
+          <div
             className={clsx(
               styles.demoArea,
               styles.background
@@ -54,7 +54,7 @@ function DivisionGroupsDemo({ dividend = 12 }) {
                 className={styles.groupBackground}
               />
             ))}
-          </div> */}
+          </div>
           <div
             className={clsx(styles.demoArea)}
             style={gridStructure}
@@ -71,8 +71,8 @@ function DivisionGroupsDemo({ dividend = 12 }) {
 
                   return (
                     <motion.div
-                      key={index}
                       layout
+                      key={originalIndex}
                       layoutId={originalIndex}
                       className={styles.item}
                     />
@@ -82,7 +82,7 @@ function DivisionGroupsDemo({ dividend = 12 }) {
             ))}
           </div>
         </div>
-        {/* <div className={styles.remainderArea}>
+        <div className={styles.remainderArea}>
           {range(remainder).map((index) => {
             const numAccountedFor =
               Math.floor(dividend / divisor) * divisor;
@@ -97,7 +97,7 @@ function DivisionGroupsDemo({ dividend = 12 }) {
               />
             );
           })}
-        </div> */}
+        </div>
         <p className={styles.equation}>
           {dividend} ÷ {divisor}
         </p>
