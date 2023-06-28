@@ -9,7 +9,7 @@ import SliderControl from '@/components/SliderControl';
 
 import styles from './DivisionGroupsDemo.module.css';
 
-function DivisionGroupsDemo({ dividend = 14 }) {
+function DivisionGroupsDemo({ dividend = 12 }) {
   const [divisor, setDivisor] = React.useState(1);
 
   const numPerGroup = Math.floor(dividend / divisor);
