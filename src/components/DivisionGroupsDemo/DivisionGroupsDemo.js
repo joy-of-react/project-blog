@@ -1,9 +1,11 @@
 'use client';
 import React from 'react';
-import { motion } from 'framer-motion';
+import { LayoutGroup, motion } from 'framer-motion';
+import clsx from 'clsx';
 
 import { range } from '@/utils';
 import Card from '@/components/Card';
+import SliderControl from '@/components/SliderControl';
 
 import styles from './DivisionGroupsDemo.module.css';
 
@@ -23,35 +25,10 @@ function DivisionGroupsDemo({ dividend = 12 }) {
 
   return (
     <Card as="section" className={styles.wrapper}>
-      <p className={styles.equation}>
-        {dividend} ÷ {divisor}
-      </p>
-      <div
-        className={styles.demoArea}
-        style={gridStructure}
-      >
-        {range(divisor).map((groupIndex) => (
-          <div key={groupIndex} className={styles.group}>
-            {range(numPerGroup).map(
-              (itemIndexWithinGroup) => {
-                const actualIndex =
-                  groupIndex * numPerGroup +
-                  itemIndexWithinGroup;
-
-                return (
-                  <div
-                    key={actualIndex}
-                    className={styles.item}
-                  />
-                );
-              }
-            )}
-          </div>
-        ))}
-      </div>
-      <div className={styles.actions}>
-        <input
-          type="range"
+      <header className={styles.header}>
+        <SliderControl
+          label="Number of Groups"
+          className={styles.slider}
           step={1}
           min={1}
           max={4}
@@ -60,7 +37,71 @@ function DivisionGroupsDemo({ dividend = 12 }) {
             setDivisor(Number(ev.target.value))
           }
         />
-      </div>
+      </header>
+      <LayoutGroup>
+        <div className={styles.demoWrapper}>
+          {/* <div
+            className={clsx(
+              styles.demoArea,
+              styles.background
+            )}
+            style={gridStructure}
+          >
+            {range(divisor).map((groupIndex) => (
+              <div
+                layout
+                key={groupIndex}
+                className={styles.groupBackground}
+              />
+            ))}
+          </div> */}
+          <div
+            className={clsx(styles.demoArea)}
+            style={gridStructure}
+          >
+            {range(divisor).map((groupIndex) => (
+              <motion.div
+                layout
+                key={groupIndex}
+                className={styles.group}
+              >
+                {range(numPerGroup).map((index) => {
+                  const originalIndex =
+                    groupIndex * numPerGroup + index;
+
+                  return (
+                    <motion.div
+                      key={index}
+                      layout
+                      layoutId={originalIndex}
+                      className={styles.item}
+                    />
+                  );
+                })}
+              </motion.div>
+            ))}
+          </div>
+        </div>
+        {/* <div className={styles.remainderArea}>
+          {range(remainder).map((index) => {
+            const numAccountedFor =
+              Math.floor(dividend / divisor) * divisor;
+            const originalIndex = index + numAccountedFor;
+
+            return (
+              <motion.div
+                key={index}
+                layout
+                layoutId={originalIndex}
+                className={styles.item}
+              />
+            );
+          })}
+        </div> */}
+        <p className={styles.equation}>
+          {dividend} ÷ {divisor}
+        </p>
+      </LayoutGroup>
     </Card>
   );
 }

@@ -1,4 +1,17 @@
 .wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.slider {
+  width: 250px;
 }
 
 .equation {
@@ -7,29 +20,53 @@
   font-family: var(--font-family-mono);
 }
 
+.demoWrapper {
+  position: relative;
+  width: 100%;
+  max-width: 550px;
+}
+
 .demoArea {
   display: grid;
-  grid-gap: 8px;
-  max-width: 500px;
+  grid-gap: 16px;
   height: 300px;
-  margin: 16px auto;
+  border: 2px solid var(--color-gray-500);
   padding: 16px;
-  border: 1px solid var(--color-decorative-500);
+}
+.demoArea.background {
+  position: absolute;
+  inset: 0;
+}
+
+.groupBackground {
+  /* background: var(--color-gray-100); */
+  border: 1px solid var(--color-gray-300);
 }
 
 .group {
   display: flex;
   gap: 8px;
   flex-wrap: wrap;
-  align-items: flex-start;
-  align-content: flex-start;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
   padding: 8px;
-  background: var(--color-decorative-200);
 }
 
 .item {
+  position: relative;
+  z-index: 2;
   width: 32px;
   height: 32px;
-  background: var(--color-primary);
+  background: var(--color-secondary);
   border-radius: 1000px;
+}
+.remainderArea {
+  display: flex;
+  justify-content: center;
+  /* background: var(--color-gray-100); */
+  border: 1px solid var(--color-gray-300);
+  height: 64px;
+  width: 100%;
+  max-width: 550px;
 }

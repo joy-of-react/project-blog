@@ -143,7 +143,7 @@ p code {
   display: inline-block;
   font-size: 0.9em;
   background: var(--color-inline-code-bg);
-  padding: 5px 6px 1.5px 6px;
+  padding: 3px 6px;
   margin: -0.25em -1px;
   border-radius: 3px;
 }

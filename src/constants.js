@@ -36,7 +36,7 @@ export const DARK_COLORS = {
   'primary-700': 'hsl(50deg 100% 35%)',
   'primary-900': 'hsl(50deg 100% 25%)',
   'primary-contrast': 'black',
-  'secondary-500': 'TODO',
+  'secondary-500': 'oklch(0.66 0.3 6)',
   'decorative-100': 'hsl(256deg 20% 4%)',
   'decorative-200': 'hsl(256deg 30% 10%)',
   'decorative-300': 'hsl(256deg 30% 15%)',
@@ -82,8 +82,7 @@ DARK_COLORS['backdrop-highlight'] =
   DARK_COLORS['decorative-500'];
 DARK_COLORS['page-background'] = 'transparent';
 DARK_COLORS['page-border'] = 'hsl(256deg 30% 50% / 0.2)';
-DARK_COLORS['card-background'] =
-  DARK_COLORS['page-background'];
+DARK_COLORS['card-background'] = DARK_COLORS['backdrop'];
 DARK_COLORS['card-border'] = DARK_COLORS['page-border'];
 
 export const LIGHT_SHADOWS = {

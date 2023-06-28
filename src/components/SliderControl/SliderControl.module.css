@@ -1,0 +1,20 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.label {
+  font-size: 1.125rem;
+  font-weight: 550;
+}
+
+.value {
+  font-size: 1.125rem;
+  font-weight: 400;
+}
