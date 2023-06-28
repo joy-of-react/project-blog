@@ -49,7 +49,6 @@ function DivisionGroupsDemo({ dividend = 12 }) {
           >
             {range(divisor).map((groupIndex) => (
               <div
-                layout
                 key={groupIndex}
                 className={styles.groupBackground}
               />
