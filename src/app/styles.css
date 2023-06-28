@@ -118,7 +118,6 @@ em {
 }
 code {
   font-family: var(--font-family-mono);
-  letter-spacing: -0.025em;
 }
 h1 {
   font-size: 1.75rem;
@@ -147,7 +146,6 @@ p code {
   padding: 5px 6px 1.5px 6px;
   margin: -0.25em -1px;
   border-radius: 3px;
-  letter-spacing: -0.05em;
 }
 a {
   color: currentColor;

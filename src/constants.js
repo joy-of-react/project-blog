@@ -1,3 +1,5 @@
+export const BLOG_TITLE = 'Bits & Bytes';
+
 export const LIGHT_COLORS = {
   text: 'hsl(0deg 0% 5%)',
   'primary-100': 'hsl(240deg 100% 90%)',

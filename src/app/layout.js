@@ -1,8 +1,12 @@
 import React from 'react';
-import { Work_Sans, Overpass_Mono } from 'next/font/google';
+import {
+  Work_Sans,
+  Spline_Sans_Mono,
+} from 'next/font/google';
 import clsx from 'clsx';
 import { cookies } from 'next/headers';
 
+import { BLOG_TITLE } from '@/constants';
 import { generateThemeStyleObject } from '@/helpers/theme-helpers';
 
 import Header from '@/components/Header';
@@ -15,12 +19,16 @@ const mainFont = Work_Sans({
   weight: 'variable',
   variable: '--font-family',
 });
-const monoFont = Overpass_Mono({
+const monoFont = Spline_Sans_Mono({
   subsets: ['latin'],
   display: 'fallback',
   weight: 'variable',
   variable: '--font-family-mono',
 });
+
+export const metadata = {
+  title: BLOG_TITLE,
+};
 
 function RootLayout({ children }) {
   const cookieStore = cookies();
