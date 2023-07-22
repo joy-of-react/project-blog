@@ -1,16 +1,17 @@
 .slider {
-  display: block;
-  width: 100%;
-  background: transparent;
-  appearance: none;
-  outline-offset: 6px;
-  cursor: pointer;
   --handle-width: 12px;
   --handle-height: 24px;
   --track-color: var(--color-gray-500);
   --handle-color: var(--color-text);
   --handle-active-color: var(--color-primary);
   --background-color: var(--color-card-background);
+  display: block;
+  width: 100%;
+  height: var(--handle-height);
+  background: transparent;
+  appearance: none;
+  outline-offset: 6px;
+  cursor: pointer;
 }
 
 .slider::-webkit-slider-thumb {

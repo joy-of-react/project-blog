@@ -9,8 +9,21 @@ import SliderControl from '@/components/SliderControl';
 
 import styles from './DivisionGroupsDemo.module.css';
 
-function DivisionGroupsDemo({ dividend = 12 }) {
-  const [divisor, setDivisor] = React.useState(1);
+function DivisionGroupsDemo({
+  dividend = 12,
+  initialDivisor = 4,
+}) {
+  const [divisor, setDivisor] =
+    React.useState(initialDivisor);
+
+  const [balls, setBalls] = React.useState(() => {
+    range(dividend).map((index) => {
+      return {
+        id: `ball-${index}`,
+        groupIndex: 0,
+      };
+    });
+  });
 
   const numPerGroup = Math.floor(dividend / divisor);
   const remainder = dividend % divisor;

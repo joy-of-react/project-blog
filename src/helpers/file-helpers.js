@@ -1,26 +1,17 @@
-import fs from 'fs';
+import fs from 'fs/promises';
 import path from 'path';
 import React from 'react';
 import matter from 'gray-matter';
 
-// TODO: Convert to readFileSync, simpler.
 export function readFile(localPath) {
-  return new Promise((resolve) => {
-    fs.readFile(
-      path.join(process.cwd(), localPath),
-      'utf8',
-      (err, data) => resolve(data)
-    );
-  });
+  return fs.readFile(
+    path.join(process.cwd(), localPath),
+    'utf8'
+  );
 }
 
 export function readDirectory(localPath) {
-  return new Promise((resolve) => {
-    fs.readdir(
-      path.join(process.cwd(), localPath),
-      (err, data) => resolve(data)
-    );
-  });
+  return fs.readdir(path.join(process.cwd(), localPath));
 }
 
 export const loadBlogPost = React.cache(async function (
@@ -33,25 +24,26 @@ export const loadBlogPost = React.cache(async function (
   return { frontmatter, content };
 });
 
-export const getBlogPostList = React.cache(() => {
-  const localPath = path.join(process.cwd(), '/content');
+export const getBlogPostList = React.cache(async () => {
+  const fileNames = await readDirectory('/content');
 
-  return fs
-    .readdirSync(localPath)
-    .map((filename) => {
-      const fileContent = fs.readFileSync(
-        path.join(process.cwd(), `/content/${filename}`)
-      );
-      const slug = filename.replace('.mdx', '');
+  const blogPosts = [];
 
-      const { data: frontmatter } = matter(fileContent);
-
-      return {
-        slug,
-        ...frontmatter,
-      };
-    })
-    .sort((p1, p2) =>
-      p1.publishedOn < p2.publishedOn ? 1 : -1
+  for (let fileName of fileNames) {
+    const fileContent = await readFile(
+      `/content/${fileName}`
     );
+    const slug = fileName.replace('.mdx', '');
+
+    const { data: frontmatter } = matter(fileContent);
+
+    blogPosts.push({
+      slug,
+      ...frontmatter,
+    });
+  }
+
+  return blogPosts.sort((p1, p2) =>
+    p1.publishedOn < p2.publishedOn ? 1 : -1
+  );
 });
