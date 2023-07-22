@@ -17,7 +17,9 @@ export function readDirectory(localPath) {
 export const loadBlogPost = React.cache(async function (
   slug
 ) {
-  const rawContent = await readFile(`/content/${slug}.mdx`);
+  const rawContent = await readFile(
+    `/src/content/${slug}.mdx`
+  );
 
   const { data: frontmatter, content } = matter(rawContent);
 
@@ -25,13 +27,13 @@ export const loadBlogPost = React.cache(async function (
 });
 
 export const getBlogPostList = React.cache(async () => {
-  const fileNames = await readDirectory('/content');
+  const fileNames = await readDirectory('/src/content');
 
   const blogPosts = [];
 
   for (let fileName of fileNames) {
     const fileContent = await readFile(
-      `/content/${fileName}`
+      `/src/content/${fileName}`
     );
     const slug = fileName.replace('.mdx', '');
 
