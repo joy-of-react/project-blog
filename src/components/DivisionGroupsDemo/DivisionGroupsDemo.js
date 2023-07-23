@@ -11,19 +11,13 @@ import styles from './DivisionGroupsDemo.module.css';
 
 function DivisionGroupsDemo({
   dividend = 12,
-  initialDivisor = 4,
+  initialDivisor = 1,
+  includeRemainderArea,
 }) {
+  const id = React.useId();
+
   const [divisor, setDivisor] =
     React.useState(initialDivisor);
-
-  const [balls, setBalls] = React.useState(() => {
-    range(dividend).map((index) => {
-      return {
-        id: `ball-${index}`,
-        groupIndex: 0,
-      };
-    });
-  });
 
   const numPerGroup = Math.floor(dividend / divisor);
   const remainder = dividend % divisor;
@@ -78,14 +72,15 @@ function DivisionGroupsDemo({
                 className={styles.group}
               >
                 {range(numPerGroup).map((index) => {
-                  const originalIndex =
-                    groupIndex * numPerGroup + index;
+                  const uniqueId = `${id}-${
+                    groupIndex * numPerGroup + index
+                  }`;
 
                   return (
                     <motion.div
-                      layout
-                      key={originalIndex}
-                      layoutId={originalIndex}
+                      layout={true}
+                      key={uniqueId}
+                      layoutId={uniqueId}
                       className={styles.item}
                     />
                   );
@@ -94,24 +89,44 @@ function DivisionGroupsDemo({
             ))}
           </div>
         </div>
-        <div className={styles.remainderArea}>
-          {range(remainder).map((index) => {
-            const numAccountedFor =
-              Math.floor(dividend / divisor) * divisor;
-            const originalIndex = index + numAccountedFor;
+        {includeRemainderArea && (
+          <div className={styles.remainderArea}>
+            <p className={styles.remainderHeading}>
+              Remainder Area
+            </p>
+            {range(remainder)
+              .reverse()
+              .map((index) => {
+                const numAccountedFor =
+                  Math.floor(dividend / divisor) * divisor;
+                const uniqueId = `${id}-${
+                  index + numAccountedFor
+                }`;
 
-            return (
-              <motion.div
-                key={index}
-                layout
-                layoutId={originalIndex}
-                className={styles.item}
-              />
-            );
-          })}
-        </div>
+                return (
+                  <motion.div
+                    layout={true}
+                    key={uniqueId}
+                    layoutId={uniqueId}
+                    className={styles.item}
+                  />
+                );
+              })}
+          </div>
+        )}
         <p className={styles.equation}>
-          {dividend} ÷ {divisor}
+          {dividend} ÷ {divisor} ={' '}
+          {Math.floor(dividend / divisor)}
+          {includeRemainderArea && remainder > 0 && (
+            <span className={styles.remainderPhrase}>
+              {' '}
+              (and{' '}
+              <span className={styles.remainderDigit}>
+                {remainder}
+              </span>{' '}
+              leftover)
+            </span>
+          )}
         </p>
       </LayoutGroup>
     </Card>

@@ -20,47 +20,107 @@ In this blog post, we're going to learn how this operator works by refining our 
 
 Suppose we have the following bit of arithmetic:
 
-```
+```js
 12 ÷ 4
 ```
 
-Division can often feel pretty abstract or theoretical, but there's a practical way to think about it: we want to divide a number into equally-sized groups:
+Division can often feel pretty abstract or theoretical, but there's a practical way to think about it: we want to divide a number into equally-sized groups.
+
+**Drag the slider to see how this operation can be visualized:**
 
 <DivisionGroupsDemo />
 
-SVG
+`12 ÷ 4` evaluates to `3`, because each group holds exactly 3 items. Essentially, we're figuring out how many items will be held inside each group.
 
-Sometimes, though, things aren't evenly divisible. Suppose we had this equation:
+In the example widget above, our divisor (the number to be divided) is 12. 12 is a _remarkably_ clean number when it comes to division; it can be split neatly in lots of different ways.
 
-```
-13 ÷ 4
-```
-
-We can still fit 4 items in each group, but we have 1 left over.
-
-**This is known as the _remainder_, and it's what the modulo operator tells us.**
+Suppose we had the following equation instead:
 
 ```js
-const remainder = 13 % 4;
-console.log(remainder); // 1
+11 ÷ 4
 ```
 
-The Modulo operator calculates the amount left over when dividing the left-hand side by the right-hand side.
+This equation evaluates to `2.75`. Each group has 2 complete items, and then ¾ths of another item.
 
-**Here's the deal:** The Modulo operator is a _remainder_ operator. It `tells us how` many integers are left over after doing the division. For example, suppose we had `10 % 5`. 5 fits into 10 exactly twice, and there's nothing left over, so the remainder is 0.
+This works if we're dividing up pizzas or cakes… **but what if the items are indestructible?** What if we _can't_ break each item up into smaller fractions?
 
-But what if we try to calculate `10 % 4`? Well, let's see:
+In that case, we'd be able to fit 2 items into each group, and we'd be left with 3 additional items:
 
-You can [learn more on MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Remainder).
+<DivisionGroupsDemo
+  includeRemainderArea={true}
+  dividend={11}
+  initialDivisor={4}
+/>
 
-Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. `It` was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+**This is known as the _remainder_.** It's what the modulo operator produces.
 
-## Why do we use it?
+In cases where the number can be equally divided into groups (eg. `12 ÷ 4`), there is nothing left over:
 
-It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
+```js
+12 % 4; // 0
+```
 
-## Where does it come from?
+In situations where the divisor (the number to be divided) _can't_ be split equally into groups, the modulo operator lets us know how much is left over:
 
-Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.
+```js
+11 % 4; // 3
+```
 
-The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.
+## A real-world use case
+
+So, I'm not a mathematician, I'm a web developer. All of this math stuff is interesting, but let's talk about how the modulo operator can come in handy on the web.
+
+Specifically, there's one sort of problem that I seem to run into a lot, where the modulo operator offers the perfect solution: _circular arrays._
+
+For example, suppose we have an array of 3 colors. Each second, we want to switch to the next color in the list. When we reach the end of the list, we want to jump back to the first item:
+
+DEMO
+
+This is a surprisingly tricky problem. Suppose we have a variable called `timeElapsed` that starts at 0 and increments by 1 every second; we have to somehow map this ever-increasing value to an array with only 3 items.
+
+Essentially, we need to write a function that produces the following results:
+
+```js
+getColor({ timeElapsed: 0 }); // Should return the 1st color
+getColor({ timeElapsed: 1 }); // Should return the 2nd color
+getColor({ timeElapsed: 2 }); // Should return the 3rd color
+getColor({ timeElapsed: 3 }); // Should return the 1st color
+getColor({ timeElapsed: 4 }); // Should return the 2nd color
+getColor({ timeElapsed: 5 }); // Should return the 3rd color
+getColor({ timeElapsed: 6 }); // Should return the 1st color
+getColor({ timeElapsed: 7 }); // Should return the 2nd color
+getColor({ timeElapsed: 8 }); // Should return the 3rd color
+// ...And so on, forever
+```
+
+Let's look at how the modulo operator can help us solve this problem:
+
+```js
+function getColor({ timeElapsed }) {
+  const COLORS = ['red', 'green', 'blue'];
+
+  const colorIndex = timeElapsed % COLORS.length;
+
+  return COLORS[colorIndex];
+}
+```
+
+Miraculously, this does exactly what we need! This method will always return one of the 3 colors, as long as `timeElapsed` is an integer. And it'll cycle through the 3 colors as `timeElapsed` increases.
+
+But _why_ does this work??
+
+`COLORS.length` is equal to `3`, since there are 3 colors in our array. And so, as `timeElapsed` increments from 0 to 8, this function winds up performing the following sequence of calculations:
+
+```js
+const colorIndex = 0 % 3; // 0
+const colorIndex = 1 % 3; // 1
+const colorIndex = 2 % 3; // 2
+const colorIndex = 3 % 3; // 0
+const colorIndex = 4 % 3; // 1
+const colorIndex = 5 % 3; // 2
+const colorIndex = 6 % 3; // 0
+const colorIndex = 7 % 3; // 1
+const colorIndex = 8 % 3; // 2
+```
+
+This works because, conveniently, we're always left with a remainder
