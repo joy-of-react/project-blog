@@ -74,21 +74,23 @@ Specifically, there's one sort of problem that I seem to run into a lot, where t
 
 For example, suppose we have an array of 3 colors. Each second, we want to switch to the next color in the list. When we reach the end of the list, we want to jump back to the first item:
 
-DEMO
+<CircularColorsDemo />
 
 This is a surprisingly tricky problem. Suppose we have a variable called `timeElapsed` that starts at 0 and increments by 1 every second; we have to somehow map this ever-increasing value to an array with only 3 items.
 
 Essentially, we need to write a function that produces the following results:
 
 ```js
+const COLORS = ['red', 'yellow', 'blue'];
+
 getColor({ timeElapsed: 0 }); // 'red'
-getColor({ timeElapsed: 1 }); // 'green'
+getColor({ timeElapsed: 1 }); // 'yellow'
 getColor({ timeElapsed: 2 }); // 'blue'
 getColor({ timeElapsed: 3 }); // 'red'
-getColor({ timeElapsed: 4 }); // 'green'
+getColor({ timeElapsed: 4 }); // 'yellow'
 getColor({ timeElapsed: 5 }); // 'blue'
 getColor({ timeElapsed: 6 }); // 'red'
-getColor({ timeElapsed: 7 }); // 'green'
+getColor({ timeElapsed: 7 }); // 'yellow'
 getColor({ timeElapsed: 8 }); // 'blue'
 // ...And so on, forever
 ```
@@ -96,9 +98,9 @@ getColor({ timeElapsed: 8 }); // 'blue'
 Let's look at how the modulo operator can help us solve this problem:
 
 ```js
-function getColor({ timeElapsed }) {
-  const COLORS = ['red', 'green', 'blue'];
+const COLORS = ['red', 'yellow', 'blue'];
 
+function getColor({ timeElapsed }) {
   const colorIndex = timeElapsed % COLORS.length;
 
   return COLORS[colorIndex];
@@ -123,8 +125,8 @@ const colorIndex = 8 % 3; // 2
 
 We can then use this `colorIndex` to look up the color from the `COLORS` array. It's guaranteed to always cycle within the range of available indexes for that array.
 
-To understand why this works, it's worth remembering our new model for division: we're trying to divide `timeElapsed` into 3 equally-sized groups, without any fractional or decimal values.
+To understand why this works, it's worth remembering our new model for division: we're trying to divide `timeElapsed` into 3 equally-sized groups, without any fractional or decimal values. The remainder will always be either 0, 1, or 2. It will never be 3+, because if there _was_ 3 left, we could fit 1 more in each group!
 
-The remainder will always be either 0, 1, or 2. It will never be 3+, because if there _was_ 3 left, we could fit 1 more in each group!
+Essentially, it's as if we had the ability to create a “circular” array. No matter how large our underlying `timeElapsed` value grows, we can have it cycle indefinitely through the colors in the `COLORS` array.
 
-And so, this trick allows us to essentially create “circular” arrays, allowing us to cycle through the values. It's an _incredibly_ handy trick, something I've used dozens of times in the years since I first learned of it.
+In my opinion, this trick alone makes the modulo operator worth learning! I've used this circular-array trick dozens of times over the years, and it's just one of several practical use cases for this handy operator.
