@@ -17,11 +17,22 @@
   padding-bottom: 48px;
 }
 
-.legalese {
+.attribution {
   margin-top: 24px;
   font-size: 0.875rem;
   color: var(--color-decorative-900);
   max-width: 18rem;
+}
+
+.attribution a {
+  color: var(--color-gray-900);
+  text-decoration: none;
+  font-weight: 700;
+}
+.attribution a:hover {
+  text-decoration: revert;
+  text-underline-offset: 0.125em;
+  text-decoration-thickness: 1.5px;
 }
 
 .linkHeading {
