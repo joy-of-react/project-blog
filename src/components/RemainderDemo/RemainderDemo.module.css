@@ -1,0 +1,51 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.slider {
+  width: 250px;
+}
+
+.demoWrapper {
+  position: relative;
+  width: 100%;
+  max-width: 550px;
+  height: 400px;
+}
+.demoArea {
+  display: grid;
+  grid-gap: 8px;
+  height: 100%;
+  grid-template-columns: 64px 1fr;
+  grid-template-rows: repeat(var(--num-of-groups), 1fr);
+}
+.group {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+  padding: 8px;
+  border: 1px solid var(--color-gray-300);
+}
+.holdingArea {
+  grid-column: 1;
+  grid-row: 1 / -1;
+}
+.item {
+  position: relative;
+  z-index: 2;
+  width: 32px;
+  height: 32px;
+  background: var(--color-secondary);
+  border-radius: 1000px;
+}
