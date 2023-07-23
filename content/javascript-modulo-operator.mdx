@@ -81,15 +81,15 @@ This is a surprisingly tricky problem. Suppose we have a variable called `timeEl
 Essentially, we need to write a function that produces the following results:
 
 ```js
-getColor({ timeElapsed: 0 }); // Should return the 1st color
-getColor({ timeElapsed: 1 }); // Should return the 2nd color
-getColor({ timeElapsed: 2 }); // Should return the 3rd color
-getColor({ timeElapsed: 3 }); // Should return the 1st color
-getColor({ timeElapsed: 4 }); // Should return the 2nd color
-getColor({ timeElapsed: 5 }); // Should return the 3rd color
-getColor({ timeElapsed: 6 }); // Should return the 1st color
-getColor({ timeElapsed: 7 }); // Should return the 2nd color
-getColor({ timeElapsed: 8 }); // Should return the 3rd color
+getColor({ timeElapsed: 0 }); // 'red'
+getColor({ timeElapsed: 1 }); // 'green'
+getColor({ timeElapsed: 2 }); // 'blue'
+getColor({ timeElapsed: 3 }); // 'red'
+getColor({ timeElapsed: 4 }); // 'green'
+getColor({ timeElapsed: 5 }); // 'blue'
+getColor({ timeElapsed: 6 }); // 'red'
+getColor({ timeElapsed: 7 }); // 'green'
+getColor({ timeElapsed: 8 }); // 'blue'
 // ...And so on, forever
 ```
 
@@ -107,8 +107,6 @@ function getColor({ timeElapsed }) {
 
 Miraculously, this does exactly what we need! This method will always return one of the 3 colors, as long as `timeElapsed` is an integer. And it'll cycle through the 3 colors as `timeElapsed` increases.
 
-But _why_ does this work??
-
 `COLORS.length` is equal to `3`, since there are 3 colors in our array. And so, as `timeElapsed` increments from 0 to 8, this function winds up performing the following sequence of calculations:
 
 ```js
@@ -123,4 +121,10 @@ const colorIndex = 7 % 3; // 1
 const colorIndex = 8 % 3; // 2
 ```
 
-This works because, conveniently, we're always left with a remainder
+We can then use this `colorIndex` to look up the color from the `COLORS` array. It's guaranteed to always cycle within the range of available indexes for that array.
+
+To understand why this works, it's worth remembering our new model for division: we're trying to divide `timeElapsed` into 3 equally-sized groups, without any fractional or decimal values.
+
+The remainder will always be either 0, 1, or 2. It will never be 3+, because if there _was_ 3 left, we could fit 1 more in each group!
+
+And so, this trick allows us to essentially create “circular” arrays, allowing us to cycle through the values. It's an _incredibly_ handy trick, something I've used dozens of times in the years since I first learned of it.
