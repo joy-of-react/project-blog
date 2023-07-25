@@ -22,7 +22,6 @@ The final project from The Joy of React.
 - Update `postslug/page.js` to use MDXRemote and the file helpers to load the current blog post and render it.
 - Same thing in layout.
 - Cache with `React.cache`
-- MAYBE: suspense?
 
 # Exercise 3: Add metadata!
 
