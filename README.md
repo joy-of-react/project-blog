@@ -32,12 +32,22 @@ The final project from The Joy of React.
 
 - Add support to MDX with `components`. Pass through the pre-built component.
 
-# Exercise 5: Animated Division widget
-
-- Use Framer Motion to add animations to the currently-static division thing.
-
-# Exercise X: Error handling
+# Exercise 5: Error handling
 
 What happens if I go to `localhost:3000/hfjvdskfhnsdkf`? Right now it gives an `ENOENT` error. Should use `error.js`.
 
 - Not something we've explicitly covered, but this'll be a good chance for them to do some independent research!
+
+# Exercise 6: Animated Division widget
+
+- Use Framer Motion to add animations to the currently-static division thing (Not remainder yet!)
+
+# 6A: Remainder section
+
+# Exercise 7: Circular Colors widget
+
+- All of the state stuff to get it to work!
+
+# Exercise 8: Dark Mode
+
+Yep
