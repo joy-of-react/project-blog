@@ -10,25 +10,28 @@ import Equation from './Equation';
 import styles from './DivisionGroupsDemo.module.css';
 
 function DivisionGroupsDemo({
-  dividend = 12,
-  initialDivisor = 1,
+  numOfItems = 12,
+  initialNumOfGroups = 1,
   includeRemainderArea,
 }) {
-  const [divisor, setDivisor] =
-    React.useState(initialDivisor);
+  const [numOfGroups, setNumOfGroups] = React.useState(
+    initialNumOfGroups
+  );
 
-  const numPerGroup = Math.floor(dividend / divisor);
+  const numOfItemsPerGroup = Math.floor(
+    numOfItems / numOfGroups
+  );
 
   const remainder = includeRemainderArea
-    ? dividend % divisor
+    ? numOfItems % numOfGroups
     : null;
 
   // When we're splitting into 1-3 groups, display side-by-side
   // columns. When we get to 4, it should switch to a 2x2 grid.
   const gridStructure =
-    divisor < 4
+    numOfGroups < 4
       ? {
-          gridTemplateColumns: `repeat(${divisor}, 1fr)`,
+          gridTemplateColumns: `repeat(${numOfGroups}, 1fr)`,
         }
       : {
           gridTemplateColumns: '1fr 1fr',
@@ -44,9 +47,9 @@ function DivisionGroupsDemo({
           step={1}
           min={1}
           max={4}
-          value={divisor}
+          value={numOfGroups}
           onChange={(ev) =>
-            setDivisor(Number(ev.target.value))
+            setNumOfGroups(Number(ev.target.value))
           }
         />
       </header>
@@ -56,9 +59,9 @@ function DivisionGroupsDemo({
           className={clsx(styles.demoArea)}
           style={gridStructure}
         >
-          {range(divisor).map((groupIndex) => (
+          {range(numOfGroups).map((groupIndex) => (
             <div key={groupIndex} className={styles.group}>
-              {range(numPerGroup).map((index) => {
+              {range(numOfItemsPerGroup).map((index) => {
                 return (
                   <div
                     key={index}
@@ -86,8 +89,8 @@ function DivisionGroupsDemo({
       )}
 
       <Equation
-        dividend={dividend}
-        divisor={divisor}
+        divisor={numOfItems}
+        dividend={numOfGroups}
         remainder={remainder}
       />
     </Card>
