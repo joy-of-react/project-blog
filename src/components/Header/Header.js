@@ -17,7 +17,7 @@ function Header({ theme, className, ...delegated }) {
       <Logo />
 
       <div className={styles.actions}>
-        <HeaderAction as="a" href="/rss">
+        <HeaderAction>
           <Rss
             size="1.5rem"
             style={{
