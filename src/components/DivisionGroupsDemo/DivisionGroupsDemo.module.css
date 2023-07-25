@@ -17,7 +17,7 @@
 .demoWrapper {
   position: relative;
   width: 100%;
-  max-width: 550px;
+  max-width: 600px;
 }
 
 .demoArea {
@@ -57,7 +57,7 @@
   border: 1px solid var(--color-gray-300);
   height: 64px;
   width: 100%;
-  max-width: 550px;
+  max-width: 600px;
   margin-top: 16px;
 }
 .remainderHeading {

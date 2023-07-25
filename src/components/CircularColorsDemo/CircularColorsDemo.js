@@ -19,13 +19,14 @@ function CircularColorsDemo() {
 
   // TODO: This value should cycle through the colors in the
   // COLORS array:
-  const selectedColor = COLORS[0].value;
+  const selectedColor = COLORS[0];
 
   return (
     <Card as="section" className={styles.wrapper}>
       <ul className={styles.colorsWrapper}>
         {COLORS.map((color, index) => {
-          const isSelected = color.value === selectedColor;
+          const isSelected =
+            color.value === selectedColor.value;
 
           return (
             <li className={styles.color} key={index}>

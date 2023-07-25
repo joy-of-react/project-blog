@@ -1,6 +1,6 @@
 import React from 'react';
 import clsx from 'clsx';
-import { Rss, Sun } from 'react-feather';
+import { Rss, Sun, Moon } from 'react-feather';
 
 import Logo from '@/components/Logo';
 import VisuallyHidden from '@/components/VisuallyHidden';

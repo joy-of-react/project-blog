@@ -34,6 +34,6 @@
   stroke-width: 3px;
 }
 
-html[data-color-mode='dark'] .wrapper {
+html[data-color-theme='dark'] .wrapper {
   --stroke-color: var(--color-decorative-300);
 }

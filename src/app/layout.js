@@ -34,7 +34,7 @@ function RootLayout({ children }) {
       lang="en"
       className={clsx(mainFont.variable, monoFont.variable)}
       style={themeTokens}
-      data-color-mode={theme}
+      data-color-theme={theme}
     >
       <body>
         <Header theme={theme} />
