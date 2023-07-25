@@ -4,14 +4,11 @@ import {
   Spline_Sans_Mono,
 } from 'next/font/google';
 import clsx from 'clsx';
-import { cookies } from 'next/headers';
 
-import { BLOG_TITLE } from '@/constants';
-import { generateThemeStyleObject } from '@/helpers/theme-helpers';
+import { LIGHT_TOKENS } from '@/constants';
 
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import RespectMotionPreferences from '@/components/RespectMotionPreferences';
 import './styles.css';
 
 const mainFont = Work_Sans({
@@ -27,34 +24,24 @@ const monoFont = Spline_Sans_Mono({
   variable: '--font-family-mono',
 });
 
-export const metadata = {
-  title: BLOG_TITLE,
-  description: 'A blog about JavaScript and other topics!',
-};
-
 function RootLayout({ children }) {
-  const cookieStore = cookies();
-  const savedTheme = cookieStore.get('theme');
-  const theme = savedTheme?.value || 'light';
+  // TODO: Dynamic theme depending on user preference
+  const theme = 'light';
+  const themeTokens = LIGHT_TOKENS;
 
   return (
-    <RespectMotionPreferences>
-      <html
-        lang="en"
-        className={clsx(
-          mainFont.variable,
-          monoFont.variable
-        )}
-        style={generateThemeStyleObject(theme)}
-        data-color-mode={theme}
-      >
-        <body>
-          <Header theme={theme} />
-          <main>{children}</main>
-          <Footer />
-        </body>
-      </html>
-    </RespectMotionPreferences>
+    <html
+      lang="en"
+      className={clsx(mainFont.variable, monoFont.variable)}
+      style={themeTokens}
+      data-color-mode={theme}
+    >
+      <body>
+        <Header theme={theme} />
+        <main>{children}</main>
+        <Footer />
+      </body>
+    </html>
   );
 }
 

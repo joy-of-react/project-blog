@@ -3,7 +3,6 @@ import clsx from 'clsx';
 import { Rss, Sun } from 'react-feather';
 
 import Logo from '@/components/Logo';
-import DarkLightToggle from '@/components/DarkLightToggle';
 import VisuallyHidden from '@/components/VisuallyHidden';
 
 import HeaderAction from './HeaderAction';
@@ -18,7 +17,7 @@ function Header({ theme, className, ...delegated }) {
       <Logo />
 
       <div className={styles.actions}>
-        <HeaderAction href="/rss">
+        <HeaderAction as="a" href="/rss">
           <Rss
             size="1.5rem"
             style={{
@@ -28,7 +27,7 @@ function Header({ theme, className, ...delegated }) {
           />
           <VisuallyHidden>View RSS feed</VisuallyHidden>
         </HeaderAction>
-        <HeaderAction as={DarkLightToggle} theme={theme}>
+        <HeaderAction>
           <Sun size="1.5rem" />
           <VisuallyHidden>
             Toggle dark / light mode

@@ -1,24 +1,14 @@
-import { MDXRemote } from 'next-mdx-remote/rsc';
+import React from 'react';
 
-import { loadBlogPost } from '@/helpers/file-helpers';
-import { COMPONENTS } from '@/helpers/mdx-helpers';
-
-export async function generateMetadata({ params }) {
-  const { frontmatter } = await loadBlogPost(
-    params.postSlug
-  );
-
-  return {
-    title: frontmatter.title,
-  };
-}
-
-async function BlogPost({ params }) {
-  const { content } = await loadBlogPost(params.postSlug);
-
+async function BlogPost() {
   return (
     <>
-      <MDXRemote source={content} components={COMPONENTS} />
+      <p>This is where the blog post will go!</p>
+      <p>
+        You will need to use <em>MDX</em> to render all of
+        the elements created from the blog post in this
+        spot.
+      </p>
     </>
   );
 }
