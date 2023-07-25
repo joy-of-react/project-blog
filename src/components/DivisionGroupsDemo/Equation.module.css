@@ -1,0 +1,13 @@
+.wrapper {
+  text-align: center;
+  font-size: 2rem;
+  font-family: var(--font-family-mono);
+  margin-bottom: 8px;
+}
+
+.remainderPhrase {
+  color: var(--color-gray-500);
+}
+.remainderDigit {
+  color: var(--color-text);
+}

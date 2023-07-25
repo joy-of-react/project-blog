@@ -14,13 +14,6 @@
   width: 250px;
 }
 
-.equation {
-  text-align: center;
-  font-size: 2rem;
-  font-family: var(--font-family-mono);
-  margin-bottom: 8px;
-}
-
 .demoWrapper {
   position: relative;
   width: 100%;
@@ -34,15 +27,6 @@
   border: 2px solid var(--color-gray-500);
   padding: 16px;
 }
-.demoArea.background {
-  position: absolute;
-  inset: 0;
-}
-
-.groupBackground {
-  /* background: var(--color-gray-100); */
-  border: 1px solid var(--color-gray-300);
-}
 
 .group {
   display: flex;
@@ -52,6 +36,7 @@
   justify-content: center;
   align-content: center;
   padding: 8px;
+  border: 1px solid var(--color-gray-300);
 }
 
 .item {
@@ -89,10 +74,4 @@
   letter-spacing: 1px;
   transform: translateY(-100%);
   border-radius: 2px 2px 0px 0px;
-}
-.remainderPhrase {
-  color: var(--color-gray-500);
-}
-.remainderDigit {
-  color: var(--color-text);
 }
