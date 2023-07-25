@@ -1,6 +1,4 @@
-'use client';
 import React from 'react';
-import { motion } from 'framer-motion';
 import clsx from 'clsx';
 import { Play, Pause, Square } from 'react-feather';
 
@@ -16,46 +14,24 @@ const COLORS = [
 ];
 
 function CircularColorsDemo() {
-  const id = React.useId();
+  // TODO: This value should increase by 1 every second:
+  const timeElapsed = 0;
 
-  const [timeElapsed, setTimeElapsed] = React.useState(0);
-  const [status, setStatus] = React.useState('playing');
-
-  React.useEffect(() => {
-    if (status === 'paused' || status === 'stopped') {
-      return;
-    }
-
-    const timeoutId = window.setTimeout(() => {
-      setTimeElapsed(timeElapsed + 1);
-    }, 1000);
-
-    return () => {
-      window.clearTimeout(timeoutId);
-    };
-  }, [status, timeElapsed]);
-
-  const selectedColorIndex = timeElapsed % COLORS.length;
+  // TODO: This value should cycle through the colors in the
+  // COLORS array:
+  const selectedColor = COLORS[0].value;
 
   return (
     <Card as="section" className={styles.wrapper}>
       <ul className={styles.colorsWrapper}>
         {COLORS.map((color, index) => {
-          const isSelected = index === selectedColorIndex;
-
-          const key = `${id}-${index}`;
+          const isSelected = color.value === selectedColor;
 
           return (
-            <li className={styles.color} key={key}>
+            <li className={styles.color} key={index}>
               {isSelected && (
-                <motion.div
-                  layoutId={`${id}-selected-box`}
+                <div
                   className={styles.selectedColorOutline}
-                  transition={{
-                    type: 'spring',
-                    stiffness: 600,
-                    damping: 60,
-                  }}
                 />
               )}
               <div
@@ -78,24 +54,11 @@ function CircularColorsDemo() {
           <dd>{timeElapsed}</dd>
         </dl>
         <div className={styles.actions}>
-          <button
-            onClick={() => {
-              setStatus(
-                status === 'playing' ? 'paused' : 'playing'
-              );
-            }}
-          >
-            {status === 'playing' ? <Pause /> : <Play />}
-            <VisuallyHidden>
-              {status === 'playing' ? 'Pause' : 'Play'}
-            </VisuallyHidden>
+          <button>
+            <Play />
+            <VisuallyHidden>Play</VisuallyHidden>
           </button>
-          <button
-            onClick={() => {
-              setStatus('stopped');
-              setTimeElapsed(0);
-            }}
-          >
+          <button>
             <Square />
             <VisuallyHidden>Stop</VisuallyHidden>
           </button>
