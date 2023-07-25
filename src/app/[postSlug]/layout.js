@@ -1,15 +1,23 @@
 import React from 'react';
 
 import { loadBlogPost } from '@/helpers/file-helpers';
-import BlogLayout from '@/components/BlogLayout';
+import BlogHero from '@/components/BlogHero';
+
+import styles from './layout.module.css';
 
 async function PostSlugLayout({ params, children }) {
-  const { frontmatter } = await loadBlogPost(params.postSlug);
+  const { frontmatter } = await loadBlogPost(
+    params.postSlug
+  );
 
   return (
-    <BlogLayout postSlug={params.postSlug} frontmatter={frontmatter}>
-      {children}
-    </BlogLayout>
+    <article className={styles.wrapper}>
+      <BlogHero
+        title={frontmatter.title}
+        publishedOn={frontmatter.publishedOn}
+      />
+      <div className={styles.page}>{children}</div>
+    </article>
   );
 }
 

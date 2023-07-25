@@ -1,11 +1,3 @@
-.mainHeader {
-  position: relative;
-  z-index: 2;
-  max-width: var(--content-width);
-  padding-left: var(--viewport-padding);
-  padding-right: var(--viewport-padding);
-}
-
 .wrapper {
   padding-bottom: 64px;
   position: relative;
