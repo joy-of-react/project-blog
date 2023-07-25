@@ -30,12 +30,11 @@ export async function getBlogPostList() {
     const fileContent = await readFile(
       `/content/${fileName}`
     );
-    const slug = fileName.replace('.mdx', '');
 
     const { data: frontmatter } = matter(fileContent);
 
     blogPosts.push({
-      slug,
+      slug: fileName.replace('.mdx', ''),
       ...frontmatter,
     });
   }

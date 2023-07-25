@@ -4,7 +4,7 @@ import BlogHero from '@/components/BlogHero';
 
 import styles from './layout.module.css';
 
-async function PostSlugLayout({ children }) {
+function PostSlugLayout({ children }) {
   return (
     <article className={styles.wrapper}>
       <BlogHero

@@ -4,7 +4,7 @@ import BlogSummaryCard from '@/components/BlogSummaryCard';
 
 import styles from './homepage.module.css';
 
-async function Home() {
+function Home() {
   return (
     <div className={styles.wrapper}>
       <h1 className={styles.mainHeading}>
@@ -15,8 +15,8 @@ async function Home() {
       <BlogSummaryCard
         slug="example"
         title="Hello world!"
-        publishedOn={new Date()}
         abstract="This is a placeholder, an example which shows how the “BlogSummaryCard” component should be used. You'll want to swap this out based on the data from the various MDX files!"
+        publishedOn={new Date()}
       />
     </div>
   );

@@ -1,6 +1,6 @@
 import React from 'react';
 
-async function BlogPost() {
+function BlogPost() {
   return (
     <>
       <p>This is where the blog post will go!</p>
