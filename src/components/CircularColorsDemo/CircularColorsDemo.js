@@ -5,6 +5,7 @@ import clsx from 'clsx';
 import { Play, Pause, Square } from 'react-feather';
 
 import Card from '@/components/Card';
+import VisuallyHidden from '@/components/VisuallyHidden';
 
 import styles from './CircularColorsDemo.module.css';
 
@@ -85,6 +86,9 @@ function CircularColorsDemo() {
             }}
           >
             {status === 'playing' ? <Pause /> : <Play />}
+            <VisuallyHidden>
+              {status === 'playing' ? 'Pause' : 'Play'}
+            </VisuallyHidden>
           </button>
           <button
             onClick={() => {
@@ -93,6 +97,7 @@ function CircularColorsDemo() {
             }}
           >
             <Square />
+            <VisuallyHidden>Stop</VisuallyHidden>
           </button>
         </div>
       </div>

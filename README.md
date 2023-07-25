@@ -16,14 +16,15 @@ The final project from The Joy of React.
 # Exercise 1: Viewing the blog post
 
 - Give them some instructions around setting up MDX with RSC. Use gray-matter to get frontmatter.
-- No `components` yet.
+- Add `Link` for anchor tags (TODO: A place to test this?)
+
+# Exercise 2: Add metadata for the blog post!
+
 - Tricky business: we need the title in the layout file! Create a helper function, use it in both places. Use `React.cache` to prevent duplicated work.
 
-# Exercise 2: Add `<title>` for the blog post
-
-# Exercise 2: Code snippets with Bright
+# Exercise 3: Code snippets with Bright
 
 - Use codehike/bright to render code snippets.
 - Explore what we get from MDX, figure out how to create a component that wraps around it.
 
-# Exercise 3: Homepage
+# Exercise 4: Homepage list of posts
