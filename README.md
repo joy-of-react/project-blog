@@ -51,3 +51,10 @@ What happens if I go to `localhost:3000/hfjvdskfhnsdkf`? Right now it gives an `
 # Exercise 8: Dark Mode
 
 Yep
+
+# Exercise 9: RSS Feed
+
+- Polymorphic button tweak
+- Self-guided, maybe recommend an NPM package?
+
+# Exercise 10: Deploy!
