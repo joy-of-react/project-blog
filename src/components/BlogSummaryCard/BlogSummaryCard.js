@@ -3,26 +3,15 @@ import Link from 'next/link';
 import { format } from 'date-fns';
 
 import Card from '@/components/Card';
-import styles from './Homepage.module.css';
 
-function Homepage({ articles }) {
-  return (
-    <div className={styles.wrapper}>
-      <h1>Latest Content:</h1>
-      {articles.map((article) => (
-        <BlogCard
-          key={article.slug}
-          slug={article.slug}
-          title={article.title}
-          publishedOn={article.publishedOn}
-          abstract={article.abstract}
-        />
-      ))}
-    </div>
-  );
-}
+import styles from './BlogSummaryCard.module.css';
 
-function BlogCard({ slug, title, publishedOn, abstract }) {
+function BlogSummaryCard({
+  slug,
+  title,
+  publishedOn,
+  abstract,
+}) {
   const href = `/${slug}`;
   const humanizedDate = format(
     new Date(publishedOn),
@@ -30,8 +19,8 @@ function BlogCard({ slug, title, publishedOn, abstract }) {
   );
 
   return (
-    <Card className={styles.post}>
-      <Link href={href} className={styles.postTitle}>
+    <Card className={styles.wrapper}>
+      <Link href={href} className={styles.title}>
         {title}
       </Link>
       <time dateTime={publishedOn}>{humanizedDate}</time>
@@ -49,4 +38,4 @@ function BlogCard({ slug, title, publishedOn, abstract }) {
   );
 }
 
-export default Homepage;
+export default BlogSummaryCard;
