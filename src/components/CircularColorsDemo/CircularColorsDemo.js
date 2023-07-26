@@ -1,6 +1,6 @@
 import React from 'react';
 import clsx from 'clsx';
-import { Play, Pause, Square } from 'react-feather';
+import { Play, Pause, RotateCcw } from 'react-feather';
 
 import Card from '@/components/Card';
 import VisuallyHidden from '@/components/VisuallyHidden';
@@ -60,8 +60,8 @@ function CircularColorsDemo() {
             <VisuallyHidden>Play</VisuallyHidden>
           </button>
           <button>
-            <Square />
-            <VisuallyHidden>Stop</VisuallyHidden>
+            <RotateCcw />
+            <VisuallyHidden>Reset</VisuallyHidden>
           </button>
         </div>
       </div>
