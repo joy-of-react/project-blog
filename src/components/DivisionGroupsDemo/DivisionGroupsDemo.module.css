@@ -46,6 +46,14 @@
   height: 32px;
   background: var(--color-secondary);
   border-radius: 1000px;
+  /*
+    These styles not actually used in the final product,
+    but they help illustrate
+  */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
 }
 .remainderArea {
   position: relative;
