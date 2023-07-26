@@ -4,15 +4,13 @@ import { Code } from 'bright';
 import theme from './theme';
 import styles from './CodeSnippet.module.css';
 
-function CodeSnippet({ language, children }) {
+function CodeSnippet(props) {
   return (
     <Code
-      lang={language}
+      {...props}
       theme={theme}
       className={styles.wrapper}
-    >
-      {children}
-    </Code>
+    />
   );
 }
 
