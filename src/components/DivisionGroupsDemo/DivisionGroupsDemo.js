@@ -89,8 +89,8 @@ function DivisionGroupsDemo({
       )}
 
       <Equation
-        divisor={numOfItems}
-        dividend={numOfGroups}
+        dividend={numOfItems}
+        divisor={numOfGroups}
         remainder={remainder}
       />
     </Card>
