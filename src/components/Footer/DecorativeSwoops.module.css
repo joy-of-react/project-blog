@@ -1,13 +1,14 @@
 .wrapper {
   --stroke-color: var(--color-decorative-600);
+  --stroke-width: 3px;
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
   background: repeating-linear-gradient(
       75deg,
-      var(--stroke-color) 0px 3px,
-      transparent 3px 10px
+      var(--stroke-color) 0px var(--stroke-width),
+      transparent var(--stroke-width) 10px
     ),
     var(--color-backdrop);
   /*
@@ -18,7 +19,7 @@
 }
 .blocker {
   position: absolute;
-  inset: -2px;
+  inset: calc(var(--stroke-width) * -1);
   width: calc(100% + 4px);
   /*
     The swoops look too drastic below 800px.
@@ -31,7 +32,7 @@
 .blocker path {
   fill: var(--color-backdrop);
   stroke: var(--stroke-color);
-  stroke-width: 3px;
+  stroke-width: var(--stroke-width);
 }
 
 html[data-color-theme='dark'] .wrapper {
