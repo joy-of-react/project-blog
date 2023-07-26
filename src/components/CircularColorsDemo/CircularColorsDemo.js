@@ -1,6 +1,10 @@
 import React from 'react';
 import clsx from 'clsx';
-import { Play, Pause, RotateCcw } from 'react-feather';
+import {
+  Play,
+  Pause,
+  RotateCcw,
+} from 'react-feather';
 
 import Card from '@/components/Card';
 import VisuallyHidden from '@/components/VisuallyHidden';
@@ -29,21 +33,31 @@ function CircularColorsDemo() {
             color.value === selectedColor.value;
 
           return (
-            <li className={styles.color} key={index}>
+            <li
+              className={styles.color}
+              key={index}
+            >
               {isSelected && (
                 <div
-                  className={styles.selectedColorOutline}
+                  className={
+                    styles.selectedColorOutline
+                  }
                 />
               )}
               <div
                 className={clsx(
                   styles.colorBox,
-                  isSelected && styles.selectedColorBox
+                  isSelected &&
+                    styles.selectedColorBox
                 )}
                 style={{
                   backgroundColor: color.value,
                 }}
-              />
+              >
+                <VisuallyHidden>
+                  {color.label}
+                </VisuallyHidden>
+              </div>
             </li>
           );
         })}
