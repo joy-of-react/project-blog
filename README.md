@@ -16,6 +16,8 @@ The final project from The Joy of React.
 # Exercise 1: List of posts on the homepage
 
 - Use the `file-helpers`. Render a card for each one.
+- `key` comes from filename. Guaranteed unique! In every major OS
+- `delegated` pros and cons.
 
 # Exercise 2: Viewing the blog post
 
