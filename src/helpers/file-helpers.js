@@ -8,11 +8,11 @@ export async function getBlogPostList() {
   const blogPosts = [];
 
   for (let fileName of fileNames) {
-    const fileContent = await readFile(
+    const rawContent = await readFile(
       `/content/${fileName}`
     );
 
-    const { data: frontmatter } = matter(fileContent);
+    const { data: frontmatter } = matter(rawContent);
 
     blogPosts.push({
       slug: fileName.replace('.mdx', ''),
@@ -26,9 +26,12 @@ export async function getBlogPostList() {
 }
 
 export async function loadBlogPost(slug) {
-  const rawContent = await readFile(`/content/${slug}.mdx`);
+  const rawContent = await readFile(
+    `/content/${slug}.mdx`
+  );
 
-  const { data: frontmatter, content } = matter(rawContent);
+  const { data: frontmatter, content } =
+    matter(rawContent);
 
   return { frontmatter, content };
 }
@@ -41,5 +44,7 @@ function readFile(localPath) {
 }
 
 function readDirectory(localPath) {
-  return fs.readdir(path.join(process.cwd(), localPath));
+  return fs.readdir(
+    path.join(process.cwd(), localPath)
+  );
 }
