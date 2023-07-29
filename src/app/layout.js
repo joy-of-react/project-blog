@@ -5,7 +5,11 @@ import {
 } from 'next/font/google';
 import clsx from 'clsx';
 
-import { LIGHT_TOKENS, DARK_TOKENS } from '@/constants';
+import {
+  BLOG_TITLE,
+  LIGHT_TOKENS,
+  DARK_TOKENS,
+} from '@/constants';
 
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
@@ -24,16 +28,27 @@ const monoFont = Spline_Sans_Mono({
   variable: '--font-family-mono',
 });
 
+export const metadata = {
+  title: BLOG_TITLE,
+  description: 'A wonderful blog about JavaScript',
+};
+
 function RootLayout({ children }) {
-  // TODO: Dynamic theme depending on user preference
   const theme = 'light';
 
   return (
     <html
       lang="en"
-      className={clsx(mainFont.variable, monoFont.variable)}
+      className={clsx(
+        mainFont.variable,
+        monoFont.variable
+      )}
       data-color-theme={theme}
-      style={theme === 'light' ? LIGHT_TOKENS : DARK_TOKENS}
+      style={
+        theme === 'light'
+          ? LIGHT_TOKENS
+          : DARK_TOKENS
+      }
     >
       <body>
         <Header theme={theme} />
