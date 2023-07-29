@@ -4,6 +4,7 @@ import { MDXRemote } from 'next-mdx-remote/rsc';
 import { BLOG_TITLE } from '@/constants';
 import { loadBlogPost } from '@/helpers/file-helpers';
 
+import CodeSnippet from '@/components/CodeSnippet';
 import BlogHero from '@/components/BlogHero';
 
 import styles from './postSlug.module.css';
@@ -11,9 +12,7 @@ import styles from './postSlug.module.css';
 export async function generateMetadata({ params }) {
   const { postSlug } = await params;
 
-  const { frontmatter } = await loadBlogPost(
-    postSlug
-  );
+  const { frontmatter } = await loadBlogPost(postSlug);
 
   return {
     title: `${frontmatter.title} • ${BLOG_TITLE}`,
@@ -34,6 +33,9 @@ async function BlogPost({ params }) {
       <div className={styles.page}>
         <MDXRemote
           source={content}
+          components={{
+            pre: CodeSnippet,
+          }}
           options={{
             blockJS: false,
           }}
