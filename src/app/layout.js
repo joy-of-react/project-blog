@@ -4,9 +4,11 @@ import {
   Spline_Sans_Mono,
 } from 'next/font/google';
 import clsx from 'clsx';
+import { cookies } from 'next/headers';
 
 import {
   BLOG_TITLE,
+  COLOR_THEME_COOKIE_NAME,
   LIGHT_TOKENS,
   DARK_TOKENS,
 } from '@/constants';
@@ -35,8 +37,11 @@ export const metadata = {
   description: 'A wonderful blog about JavaScript',
 };
 
-function RootLayout({ children }) {
-  const theme = 'light';
+async function RootLayout({ children }) {
+  const savedTheme = (await cookies()).get(
+    COLOR_THEME_COOKIE_NAME
+  );
+  const theme = savedTheme?.value || 'light';
 
   return (
     <RespectMotionPreferences>
@@ -54,7 +59,7 @@ function RootLayout({ children }) {
         }
       >
         <body>
-          <Header theme={theme} />
+          <Header initialTheme={theme} />
           <main>{children}</main>
           <Footer />
         </body>
