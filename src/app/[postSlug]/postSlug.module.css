@@ -21,6 +21,23 @@
   grid-column: 2;
 }
 
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.loadingWrapper {
+  display: flex;
+  justify-content: center;
+  padding-top: 256px;
+  animation: fadeIn 300ms both;
+  animation-delay: 1000ms;
+}
+
 @media (min-width: 80rem) {
   .page {
     border: 1px solid var(--color-page-border);

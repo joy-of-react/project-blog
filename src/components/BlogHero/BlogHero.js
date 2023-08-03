@@ -10,10 +10,9 @@ function BlogHero({
   className,
   ...delegated
 }) {
-  const humanizedDate = format(
-    new Date(publishedOn),
-    'MMMM do, yyyy'
-  );
+  const humanizedDate =
+    publishedOn &&
+    format(new Date(publishedOn), 'MMMM do, yyyy');
 
   return (
     <header
