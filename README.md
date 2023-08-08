@@ -363,7 +363,7 @@ So far in this project, all of the styles have been provided, but in this case, 
 
 ---
 
-## The journey continues!
+## Next steps
 
 Our blog is looking pretty darn good. 😄
 
