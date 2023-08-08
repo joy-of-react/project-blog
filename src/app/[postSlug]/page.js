@@ -1,4 +1,5 @@
 import React from 'react';
+import { notFound } from 'next/navigation';
 import { MDXRemote } from 'next-mdx-remote/rsc';
 
 import { BLOG_TITLE } from '@/constants';
@@ -12,9 +13,18 @@ import styles from './postSlug.module.css';
 export async function generateMetadata({ params }) {
   const { postSlug } = await params;
 
-  const { frontmatter } = await loadBlogPost(
+  const blogPostData = await loadBlogPost(
     postSlug
   );
+
+  // If we can't locate the blog post, this will be a 404. This
+  // means that the returned value from this function won't
+  // actually be used. We'll return `null` purely to avoid an error.
+  if (!blogPostData) {
+    return null;
+  }
+
+  const { frontmatter } = blogPostData;
 
   return {
     title: `${frontmatter.title} • ${BLOG_TITLE}`,
@@ -24,8 +34,18 @@ export async function generateMetadata({ params }) {
 
 async function BlogPost({ params }) {
   const { postSlug } = await params;
-  const { frontmatter, content } =
-    await loadBlogPost(postSlug);
+
+  const blogPostData = await loadBlogPost(
+    postSlug
+  );
+
+  // If there is no blog post with the slug taken from the route
+  // params, render a 404 page instead.
+  if (!blogPostData) {
+    notFound();
+  }
+
+  const { frontmatter, content } = blogPostData;
 
   return (
     <article className={styles.wrapper}>
