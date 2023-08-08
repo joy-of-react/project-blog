@@ -10,38 +10,53 @@ import BlogHero from '@/components/BlogHero';
 
 import styles from './postSlug.module.css';
 
-export async function generateMetadata({ params }) {
-  const blogPostData = await loadBlogPost(
-    params.postSlug
-  );
+// export async function generateMetadata({ params }) {
+//   const blogPostData = await loadBlogPost(
+//     params.postSlug
+//   );
 
-  // If we can't locate the blog post, this will be a 404. This
-  // means that the returned value from this function won't
-  // actually be used. We'll return `null` purely to avoid an error.
-  if (!blogPostData) {
-    return null;
-  }
+//   // If we can't locate the blog post, this will be a 404. This
+//   // means that the returned value from this function won't
+//   // actually be used. We'll return `null` purely to avoid an error.
+//   if (!blogPostData) {
+//     return null;
+//   }
 
-  const { frontmatter } = blogPostData;
+//   const { frontmatter } = blogPostData;
 
-  return {
-    title: `${frontmatter.title} • ${BLOG_TITLE}`,
-    description: frontmatter.abstract,
-  };
-}
+//   return {
+//     title: `${frontmatter.title} • ${BLOG_TITLE}`,
+//     description: frontmatter.abstract,
+//   };
+// }
 
 async function BlogPost({ params }) {
-  const blogPostData = await loadBlogPost(
-    params.postSlug
-  );
+  // const blogPostData = await loadBlogPost(
+  //   params.postSlug
+  // );
 
   // If there is no blog post with the slug taken from the route
   // params, render a 404 page instead.
-  if (!blogPostData) {
-    notFound();
-  }
+  // if (!blogPostData) {
+  //   notFound();
+  // }
 
-  const { frontmatter, content } = blogPostData;
+  const { frontmatter, content } = {
+    frontmatter: {
+      title: 'Test',
+      publishedOn: new Date(),
+    },
+    content: `
+When I was first learning to code, I remember finding the Modulo operator (%) _extremely_ confusing. 😬
+
+If you don't understand what it's doing, the values it produces seem completely random:
+
+- This
+- is
+- a
+- test
+    `
+  };
 
   return (
     <article className={styles.wrapper}>
