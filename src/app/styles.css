@@ -158,6 +158,9 @@ a {
 a:hover {
   text-underline-offset: 0.175em;
 }
+button {
+  padding: 0;
+}
 
 @media (min-width: 35rem) {
   h1 {
