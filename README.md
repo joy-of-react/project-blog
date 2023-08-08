@@ -31,6 +31,14 @@ npm run new-component [TheNewComponentName]
 >
 > In VS Code, you can render this README by opening the command palette (`Ctrl` + `Shift` + `P` on Windows/Linux, `⌘` + `Shift` + `P` on MacOS), typing “Markdown”, and selecting “Markdown: Open Preview”.
 
+## Troubleshooting
+
+- When you run a dev server, you may notice a warning: **You have enabled experimental feature (outputFileTracingIncludes)**. This warning can safely be ignored. `outputFileTracingIncludes` is a configuration option required to make sure that our MDX files are included when deploying our application to Vercel.
+
+- If the dev server seems to be stuck on a stale error, and restarting the dev server doesn't help, you can clear Next's cache by deleting the `.next/cache` subdirectory. Don't worry about losing anything important: everything inside the `.next` directory is derived from the rest of the codebase.
+
+- If you get stuck, you can definitely ask for help on Discord! Post your question in the #joy-of-react Discord channel.
+
 ---
 
 ## Exercise 1: Homepage list of posts
