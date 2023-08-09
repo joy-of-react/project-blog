@@ -55,7 +55,7 @@ Let's update the homepage so that it shows a list of blog posts:
   - `slug`, matching the filename (eg. `javascript-modulo-operator`)
   - `title`, `abstract`, and `publishedOn`, all passed along from the frontmatter for each post.
 
-You can use the `getBlogPostList` helper inside `/src/helpers/file-helpers.js` to retrieve the information about the MDX files. Alternatively, if you some experience using Node, feel free to solve this exercise without using this helper.
+**Note:** To help with some of the Node file-manipulation stuff, a helper module has been provided, `/src/helpers/file-helpers.js`. You can use the `getBlogPostList` function to gather the full list of blog posts. Alternatively, if you some experience using Node, feel free to solve this exercise without using this helper.
 
 ---
 
@@ -77,11 +77,14 @@ The final result should look like this:
 
 ![Screenshot showing the blog post layout with all of the content from the MDX file, with correct formatting (paragraphs, headings, etc)](/docs/blog-post-with-mdx.png)
 
-**Note: we want to use the React Server Components version of `next-mdx-remote`.** You can learn more about it in the official docs:
+**Note:** Inside `/src/helpers/file-helpers.js`, you'll find a function called `loadBlogPost`. You can use this helper function if you're not comfortable with the Node `fs` module.
 
-- [React Server Components (RSC) Support](https://github.com/hashicorp/next-mdx-remote#react-server-components-rsc--nextjs-app-directory-support)
+**Resources:**
 
-You might also wish to refer to the [“Dynamic Segments” lesson](https://courses.joshwcomeau.com/joy-of-react/06-full-stack-react/04.03-dynamic-segments) in Module 6, if you're not sure how to get the blog post slug from the URL.
+- [“MDX in Next.js” lesson](https://courses.joshwcomeau.com/joy-of-react/project-blog/01.02-mdx-in-next)
+- [next-mdx-remote docs](https://github.com/hashicorp/next-mdx-remote#react-server-components-rsc--nextjs-app-directory-support)
+  - **Be sure to use the _RSC_ version of the package!**
+- [“Dynamic Segments” lesson](https://courses.joshwcomeau.com/joy-of-react/06-full-stack-react/04.03-dynamic-segments)
 
 ---
 
@@ -118,13 +121,16 @@ And on the blog post page, it should look something like this:
 - The name of the blog, “Bits & Bytes”, shouldn't be hardcoded. It should use the `BLOG_TITLE` constant found in `/src/constants.js`.
 - Performance should be optimized, as necessary, using the React Cache API.
 
-For more information, be sure to check out the [“Next.js Metadata API” lesson](https://courses.joshwcomeau.com/joy-of-react/06-full-stack-react/05-metadata), as well as the [official docs](https://nextjs.org/docs/app/building-your-application/optimizing/metadata)
+**Resources:**
+
+- [“Next.js Metadata API” lesson](https://courses.joshwcomeau.com/joy-of-react/06-full-stack-react/05-metadata)
+- [Next Metadata API official docs](https://nextjs.org/docs/app/building-your-application/optimizing/metadata)
 
 ---
 
 ## Exercise 4: Code snippets with Bright
 
-Our MDX files include code snippets. By default, they'll be rendered by `<MDXRemote>` as a `<pre>` tag. This _works_, but it's not terribly aesthetic. We can improve the presentation using [Bright](https://bright.codehike.org/), the React-Server-Components-based syntax highlighter we saw in Module 6.
+Our MDX files include code snippets. By default, they'll be rendered by `<MDXRemote>` as a `<pre>` tag. This _works_, but it's not very ✨ aesthetic ✨. We can improve the presentation using [Bright](https://bright.codehike.org/), the React-Server-Components-based syntax highlighter we saw in Module 6.
 
 This package is already installed in this repository, and is being used inside the `/src/components/CodeSnippet` component. Your mission in this exercise is to render this `CodeSnippet` component for every code snippet inside the MDX files.
 
@@ -134,12 +140,15 @@ The end result should look like this:
 
 **Acceptance Criteria:**
 
-- Code snippets inside blog posts should render using the `CodeSnippet` component.
+- Code snippets inside blog posts should be syntax-highlighted.
+- You should use the `CodeSnippet` component, found in `/src/components/CodeSnippet`
 
-For more information on how to solve this problem, you'll want to refer to:
+**Resources:**
 
-- The [Bright docs](https://bright.codehike.org/)
-- The [next-mdx-remote docs](https://github.com/hashicorp/next-mdx-remote#custom-components)
+- [Bright docs](https://bright.codehike.org/)
+- [“MDX in Next.js” lesson](https://courses.joshwcomeau.com/joy-of-react/project-blog/01.02-mdx-in-next)
+- [next-mdx-remote docs](https://github.com/hashicorp/next-mdx-remote#custom-components)
+- [“Revealable Code Snippets” exercise](https://courses.joshwcomeau.com/joy-of-react/06-full-stack-react/03.04-client-components-exercises#revealable-code-snippets-with-bright)
 
 ---
 
@@ -147,9 +156,10 @@ For more information on how to solve this problem, you'll want to refer to:
 
 So far, our blog posts don't really feature anything super custom. Let's change that.
 
-The “Understanding the JavaScript Modulo Operator” makes use of two different embedded widgets. In this exercise, we'll focus on the first one, `DivisionGroupsDemo`.
+The “Understanding the JavaScript Modulo Operator” blog post makes use of two different embedded widgets. In this exercise, we'll focus on the first one, `DivisionGroupsDemo`.
 
 **This is a significant challenge.** To help keep things a bit more manageable, we'll break this exercise up into 3 parts.
+
 
 ### Exercise 5A: Rendering embedded components
 
@@ -172,12 +182,14 @@ This component exists, and you can find it in `/src/components/DivisionGroupsDem
 **Acceptance Criteria:**
 
 - Within `javascript-modulo-operator.mdx`, the first `<DivisionGroupsDemo>` element should be uncommented, and rendering without issue.
-- **Your solution should scale well, even if there are 100s of blog posts.** You'll want to use lazy loading to make sure that the `DivisionGroupsDemo` component is only downloaded when it's rendered.
+- Your solution should scale well, even if there are 100s of blog posts. You'll want to use _lazy loading_ to make sure that the `DivisionGroupsDemo` component is only downloaded when it's rendered.
 
-Some helpful resources for this one:
+**Resources:**
 
+- [“MDX in Next.js” lesson](https://courses.joshwcomeau.com/joy-of-react/project-blog/01.02-mdx-in-next)
+- [next-mdx-remote docs](https://github.com/hashicorp/next-mdx-remote#custom-components)
 - [“Lazy Loading in Next”](https://courses.joshwcomeau.com/joy-of-react/06-full-stack-react/10.01-lazy-loading-in-next)
-- The [next-mdx-remote docs](https://github.com/hashicorp/next-mdx-remote#custom-components)
+
 
 ### Exercise 5B: Animations with Framer Motion
 
@@ -193,14 +205,15 @@ Let's implement some _layout animations_, so that the pink circles being grouped
 
 - When the number of groups changes, the pink circles should glide smoothly, using Framer Motion layout animations.
 - For now, you can ignore all of the stuff in the `includeRemainderArea` conditional; we'll deal with that in the next part of this exercise.
-- **This animation should respect user preferences.** If they've toggled the “Reduce motion” setting in their operating system, the pink circles should jump immediately into their new groups.
+- _This animation should respect user preferences._ If they've toggled the “Reduce motion” setting in their operating system, the pink circles should jump immediately into their new groups.
+  - To test this, you can use emulation inside the devtools. See the [“Motion Accessibility” lesson](https://courses.joshwcomeau.com/joy-of-react/07-framer-motion/05-accessibility) for more info.
 
-For this one, several lessons from the Framer Motion bonus module might be useful:
+**Resources:**
 
 - [“Layout Animations” lesson](https://courses.joshwcomeau.com/joy-of-react/07-framer-motion/03-layout-animations)
 - [“Shared Layout” lesson](https://courses.joshwcomeau.com/joy-of-react/07-framer-motion/04-layout-id)
 - [“Working With Groups” lesson](https://courses.joshwcomeau.com/joy-of-react/07-framer-motion/04.01-layout-groups)
-- [“Disabling Motion in Next” lesson](https://courses.joshwcomeau.com/joy-of-react/07-framer-motion/05.01-disabling-in-next-js)
+- [“Motion Accessibility” lesson](https://courses.joshwcomeau.com/joy-of-react/07-framer-motion/05-accessibility)
 
 
 ### Exercise 5C: Remainder area
@@ -229,7 +242,7 @@ If you haven't already, you can uncomment this second `DivisionGroupsDemo` eleme
 - In the second `DivisionGroupsDemo` element, a new “Remainder area” is added. The pink circles should be animated when moving to/from this remainder area, the same as they are when moving between groups.
 - The pink circles should be added to the _end_ of the remainder area, stacking on the right. They shouldn't "cross over" and sit at the front. See the GIF above for the exact effect we're after.
 
-The same “Framer Motion” lessons can serve as helpful references for this sub-exercise:
+**Resources:**
 
 - [“Layout Animations” lesson](https://courses.joshwcomeau.com/joy-of-react/07-framer-motion/03-layout-animations)
 - [“Shared Layout” lesson](https://courses.joshwcomeau.com/joy-of-react/07-framer-motion/04-layout-id)
@@ -256,10 +269,11 @@ This widget demonstrates how the Modulo operator can be used to select items fro
 - A layout animation should be used on the `selectedColor` outline, causing it to glide smoothly between the 3 colors.
   - Like all layout animations, this should be disabled if the user has enabled the “Reduce motion” setting.
 
-Resources:
+**Resources:**
 
 - [The blog post itself!](https://project-blog-dun.vercel.app/javascript-modulo-operator) This is very meta, but the blog post we've been working on details how the Modulo operator works, and you'll want to use this operator in your solution.
-- [The “Digital Clock” Exercise from Module 3](https://courses.joshwcomeau.com/joy-of-react/03-hooks/05.07-cleanup-exercises#digital-clock)
+- [“Side Effects” set of lessons from Module 3](https://courses.joshwcomeau.com/joy-of-react/03-hooks/05-effects)
+  - In particular, the [“Digital Clock” Exercise](https://courses.joshwcomeau.com/joy-of-react/03-hooks/05.07-cleanup-exercises#digital-clock) might be helpful.
 
 ---
 
@@ -275,13 +289,16 @@ Inside the root layout (`/src/app/layout.js`), you'll see that the theme is curr
 
 - Clicking the Sun icon in the header should immediately flip to the dark color theme.
 - The icon within this button should match the theme: a sun in light mode, a moon in dark mode.
-- The user's saved value should be remembered, so that if they refresh the page, the colors don't change. This should be seamless, without any awkward “flash of light mode”, where the wrong colors are shown for a brief moment.
+- The user's saved value should be remembered, so that if they refresh the page, the colors don't change.
+  - This should be seamless, without any awkward “flash of light mode”, where the wrong colors are shown for a brief moment.
 
-Resources:
+**Resources:**
 
 - [“Dark Mode” lesson](https://courses.joshwcomeau.com/joy-of-react/06-full-stack-react/11-dark-mode)
 
+
 ---
+
 
 ## Stretch goals
 
