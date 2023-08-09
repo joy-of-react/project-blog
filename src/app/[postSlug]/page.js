@@ -24,10 +24,18 @@ export async function generateMetadata({ params }) {
 
   const { frontmatter } = blogPostData;
 
-  return {
+  let metadata = {
     title: `${frontmatter.title} • ${BLOG_TITLE}`,
     description: frontmatter.abstract,
-  };
+  }
+
+  if (frontmatter.canonicalUrl) {
+    metadata.alternates = {
+      canonical: frontmatter.canonicalUrl,
+    }
+  }
+
+  return metadata;
 }
 
 async function BlogPost({ params }) {
