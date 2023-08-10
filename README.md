@@ -392,6 +392,7 @@ From this point onwards, it's up to you what you want to do. Here are some sugge
 - Add tags and/or categories.
 - Add more than 2 color themes.
 - Add a "Table of Contents" component that plucks out the headings from the blog post.
+- Include a “Comments” section, using something like [webmentions](https://webmention.io/), loaded with Suspense!
 
 If you've been thinking about starting a developer blog, this project should serve as an excellent foundation for you to build upon. Just be sure to abide by the conditions in the [LICENSE.md file](https://github.com/joy-of-react/project-blog/blob/main/LICENSE.md).
 
