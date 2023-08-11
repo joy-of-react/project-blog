@@ -393,6 +393,7 @@ From this point onwards, it's up to you what you want to do. Here are some sugge
 - Add more than 2 color themes.
 - Add a "Table of Contents" component that plucks out the headings from the blog post.
 - Include a “Comments” section, using something like [webmentions](https://webmention.io/), loaded with Suspense!
+- Create custom-generated OpenGraph images using [vercel/og](https://vercel.com/docs/concepts/functions/edge-functions/og-image-generation)
 
 If you've been thinking about starting a developer blog, this project should serve as an excellent foundation for you to build upon. Just be sure to abide by the conditions in the [LICENSE.md file](https://github.com/joy-of-react/project-blog/blob/main/LICENSE.md).
 
