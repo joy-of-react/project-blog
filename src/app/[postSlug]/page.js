@@ -7,6 +7,7 @@ import CodeSnippet from '@/components/CodeSnippet/CodeSnippet';
 import { loadBlogPost } from '@/helpers/file-helpers';
 
 const DivisionGroupsDemo = dynamic(() => import('@/components/DivisionGroupsDemo'));
+const CircularColorsDemo = dynamic(() => import('@/components/CircularColorsDemo'));
 
 import styles from './postSlug.module.css';
 
@@ -28,7 +29,7 @@ async function BlogPost({ params }) {
         <MDXRemote
           frontmatter={blogPost.frontmatter}
           source={blogPost.content}
-          components={{ pre: CodeSnippet, DivisionGroupsDemo }}
+          components={{ pre: CodeSnippet, DivisionGroupsDemo, CircularColorsDemo }}
         />
       </div>
     </article>
