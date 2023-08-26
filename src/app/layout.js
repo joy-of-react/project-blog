@@ -2,7 +2,7 @@ import React from 'react';
 import { Work_Sans, Spline_Sans_Mono } from 'next/font/google';
 import clsx from 'clsx';
 
-import MotionConfig from '@/components/MotionConfig';
+import MotionConfig from '@/components/client/MotionConfig';
 
 import { LIGHT_TOKENS, DARK_TOKENS } from '@/constants';
 
