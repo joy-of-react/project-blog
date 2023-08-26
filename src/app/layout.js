@@ -1,9 +1,8 @@
 import React from 'react';
-import {
-  Work_Sans,
-  Spline_Sans_Mono,
-} from 'next/font/google';
+import { Work_Sans, Spline_Sans_Mono } from 'next/font/google';
 import clsx from 'clsx';
+
+import MotionConfig from '@/components/MotionConfig';
 
 import { LIGHT_TOKENS, DARK_TOKENS } from '@/constants';
 
@@ -30,14 +29,16 @@ function RootLayout({ children }) {
 
   return (
     <html
-      lang="en"
+      lang='en'
       className={clsx(mainFont.variable, monoFont.variable)}
       data-color-theme={theme}
       style={theme === 'light' ? LIGHT_TOKENS : DARK_TOKENS}
     >
       <body>
         <Header theme={theme} />
-        <main>{children}</main>
+        <MotionConfig reducedMotion='user'>
+          <main>{children}</main>
+        </MotionConfig>
         <Footer />
       </body>
     </html>
