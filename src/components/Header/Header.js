@@ -3,6 +3,7 @@ import React from 'react';
 import clsx from 'clsx';
 import { Rss, Sun, Moon } from 'react-feather';
 import Cookie from 'js-cookie';
+import {useRouter} from 'next/navigation'
 
 import {
   COLOR_THEME_COOKIE_NAME,
@@ -20,6 +21,8 @@ function Header({
   className,
   ...delegated
 }) {
+  const router = useRouter();
+
   const [theme, setTheme] =
     React.useState(initialTheme);
 
@@ -32,18 +35,7 @@ function Header({
       expires: 1000,
     });
 
-    const newTokens =
-      newTheme === 'light'
-        ? LIGHT_TOKENS
-        : DARK_TOKENS;
-    const root = document.documentElement;
-
-    root.setAttribute('data-color-theme', newTheme);
-    Object.entries(newTokens).forEach(
-      ([key, value]) => {
-        root.style.setProperty(key, value);
-      }
-    );
+    router.refresh();
   }
 
   return (
