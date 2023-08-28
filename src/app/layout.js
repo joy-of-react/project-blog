@@ -24,6 +24,16 @@ const monoFont = Spline_Sans_Mono({
   variable: '--font-family-mono',
 });
 
+export const metadata = {
+  other: {
+    env: process.env.GIT_BRANCH,
+    version: [process.env.GIT_COMMIT_TAG, process.env.GIT_COMMIT_HASH, process.env.GIT_COMMIT_DATE]
+      .filter(Boolean)
+      .join(' - '),
+    'deployed-at': process.env.BUILD_DATE,
+  },
+};
+
 function RootLayout({ children }) {
   const savedTheme = cookies().get('color-theme');
   const theme = savedTheme?.value || 'light';
