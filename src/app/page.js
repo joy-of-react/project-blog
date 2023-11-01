@@ -3,7 +3,7 @@ import React from 'react';
 import BlogSummaryCard from '@/components/BlogSummaryCard';
 
 import { getBlogPostList } from '@/helpers/file-helpers';
-import { BLOG_TITLE } from '@/constants';
+
 import styles from './homepage.module.css';
 
 async function Home() {
