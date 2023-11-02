@@ -101,7 +101,9 @@ function DivisionGroupsDemo({
                   key={layoutId}
                   layoutId={layoutId} 
                   className={styles.item} 
-                />
+                >
+                {index}
+                </motion.div>
               );
             })}
           </div>
