@@ -2,42 +2,12 @@ import React from 'react';
 import { notFound } from 'next/navigation';
 import { MDXRemote } from 'next-mdx-remote/rsc';
 
-import { BLOG_TITLE } from '@/constants';
 import { loadBlogPost } from '@/helpers/file-helpers';
 import COMPONENT_MAP from '@/helpers/mdx-components';
 
 import BlogHero from '@/components/BlogHero';
 
 import styles from './postSlug.module.css';
-
-export async function generateMetadata({ params }) {
-  console.log('Generate metadata', params.postSlug)
-  const blogPostData = await loadBlogPost(
-    params.postSlug
-  );
-
-  // If we can't locate the blog post, this will be a 404. This
-  // means that the returned value from this function won't
-  // actually be used. We'll return `null` purely to avoid an error.
-  if (!blogPostData) {
-    return null;
-  }
-
-  const { frontmatter } = blogPostData;
-
-  let metadata = {
-    title: `${frontmatter.title} • ${BLOG_TITLE}`,
-    description: frontmatter.abstract,
-  }
-
-  if (frontmatter.canonicalUrl) {
-    metadata.alternates = {
-      canonical: frontmatter.canonicalUrl,
-    }
-  }
-
-  return metadata;
-}
 
 async function BlogPost({ params }) {
   console.log('Render Blog Post', params.postSlug)
