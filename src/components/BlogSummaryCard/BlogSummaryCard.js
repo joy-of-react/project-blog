@@ -20,7 +20,7 @@ function BlogSummaryCard({
 
   return (
     <Card className={styles.wrapper}>
-      <Link href={href} className={styles.title} prefetch={true}>
+      <Link href={href} className={styles.title}>
         {title}
       </Link>
       <time dateTime={publishedOn}>{humanizedDate}</time>

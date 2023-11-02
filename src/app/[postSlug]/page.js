@@ -11,6 +11,7 @@ import BlogHero from '@/components/BlogHero';
 import styles from './postSlug.module.css';
 
 export async function generateMetadata({ params }) {
+  console.log('Generate metadata', params.postSlug)
   const blogPostData = await loadBlogPost(
     params.postSlug
   );
@@ -39,6 +40,7 @@ export async function generateMetadata({ params }) {
 }
 
 async function BlogPost({ params }) {
+  console.log('Render Blog Post', params.postSlug)
   const blogPostData = await loadBlogPost(
     params.postSlug
   );
