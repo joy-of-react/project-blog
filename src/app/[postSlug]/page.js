@@ -9,6 +9,8 @@ import BlogHero from '@/components/BlogHero';
 
 import styles from './postSlug.module.css';
 
+console.log('access postSlug file')
+
 async function BlogPost({ params }) {
   console.log('Render Blog Post', params.postSlug)
   const blogPostData = await loadBlogPost(
