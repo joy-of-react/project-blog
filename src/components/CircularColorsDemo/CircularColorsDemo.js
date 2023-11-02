@@ -87,11 +87,17 @@ function CircularColorsDemo() {
         <div className={styles.actions}>
           <button
             onClick={() => {
-              setStatus('playing');
+              if(status === 'playing'){
+                setStatus('idle');
+              } else {
+                setStatus('playing');
+              }
             }}
           >
-            <Play />
-            <VisuallyHidden>Play</VisuallyHidden>
+            {status === 'playing' ? <Pause /> : <Play/>}
+            <VisuallyHidden>
+              {status === 'playing' ? 'Pause' : 'Play'}
+            </VisuallyHidden>
           </button>
           <button
             onClick={() => {
