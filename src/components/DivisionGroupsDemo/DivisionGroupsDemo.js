@@ -94,9 +94,8 @@ function DivisionGroupsDemo({
             {range(
               totalNumInGroups,
               numOfItems
-              ).map((index) => {
-               const totalInGroups = numOfGroups * numOfItemsPerGroup;
-               const layoutId = `${id}-${index + totalInGroups}`;
+              ).reverse().map((index) => {
+               const layoutId = `${id}-${index}`;
               return (
                 <motion.div 
                   key={layoutId}
