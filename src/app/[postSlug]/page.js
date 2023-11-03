@@ -5,13 +5,9 @@ import BlogHero from '@/components/BlogHero';
 import styles from './postSlug.module.css';
 import { loadBlogPost } from '@/helpers/file-helpers';
 import { MDXRemote } from 'next-mdx-remote/rsc';
-import dynamic from 'next/dynamic';
-import { BLOG_TITLE } from '@/constants';
-import CodeSnippet from '@/components/CodeSnippet';
 
-const DivisionGroupsDemo = dynamic(() => 
-  import('@/components/DivisionGroupsDemo')
-);
+import { BLOG_TITLE } from '@/constants';
+import COMPONENT_MAP from '@/helpers/mdx-components';
 
 export async function generateMetadata({ params }) {
   const { frontmatter } = await loadBlogPost(params.postSlug);
@@ -20,8 +16,6 @@ export async function generateMetadata({ params }) {
     description: frontmatter.abstract,
   };
 }
-
-// TODO: Put bright code snippets here
 
 async function BlogPost({ params }){
   const { frontmatter, content } = await loadBlogPost(params.postSlug);
@@ -34,10 +28,7 @@ async function BlogPost({ params }){
       <div className={styles.page}>
       <MDXRemote 
         source ={content}
-        components={{
-          pre: CodeSnippet,
-          DivisionGroupsDemo,
-        }}
+        components={COMPONENT_MAP}
         />
       </div>
     </article>

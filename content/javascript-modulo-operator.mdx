@@ -46,8 +46,6 @@ This works if we're dividing up pizzas or cakes… **but what if the items are i
 
 In that case, we'd be able to fit 2 items into each group, and we'd be left with 3 additional items:
 
-**TODO: Uncomment DivisionGroupsDemo**
-
 <DivisionGroupsDemo includeRemainderArea={true} numOfItems={11} initialNumOfGroups={4} />
 
 **This is known as the _remainder_.** It's what the modulo operator produces.
@@ -72,9 +70,7 @@ Specifically, there's one sort of problem that I seem to run into a lot, where t
 
 For example, suppose we have an array of 3 colors. Each second, we want to switch to the next color in the list. When we reach the end of the list, we want to jump back to the first item:
 
-**TODO: Uncomment CircularColorsDemo**
-
-{/* <CircularColorsDemo /> */}
+<CircularColorsDemo />
 
 This is a surprisingly tricky problem. Suppose we have a variable called `timeElapsed` that starts at 0 and increments by 1 every second; we have to somehow map this ever-increasing value to an array with only 3 items.
 
