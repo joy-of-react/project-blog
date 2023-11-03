@@ -9,6 +9,7 @@ import {
 
 import Card from '@/components/Card';
 import VisuallyHidden from '@/components/VisuallyHidden';
+import { motion } from 'framer-motion';
 
 import styles from './CircularColorsDemo.module.css';
 
@@ -19,6 +20,7 @@ const COLORS = [
 ];
 
 function CircularColorsDemo() {
+  const id = React.useId();
   // TODO: This value should increase by 1 every second:
   const [status, setStatus] = React.useState('idle');
   const [timeElapsed, setTimeElapsed] = React.useState(0);
@@ -54,7 +56,8 @@ function CircularColorsDemo() {
               key={index}
             >
               {isSelected && (
-                <div
+                <motion.div
+                  layoutId={`${id}-selected-color-outline`}
                   className={
                     styles.selectedColorOutline
                   }
@@ -91,6 +94,7 @@ function CircularColorsDemo() {
                 setStatus('idle');
               } else {
                 setStatus('playing');
+                setTimeElapsed(timeElapsed + 1);
               }
             }}
           >
