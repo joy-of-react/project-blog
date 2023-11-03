@@ -4,8 +4,9 @@ import {
   Spline_Sans_Mono,
 } from 'next/font/google';
 import clsx from 'clsx';
+import { cookies } from 'next/headers';
 
-import { BLOG_TITLE, LIGHT_TOKENS, DARK_TOKENS } from '@/constants';
+import { BLOG_TITLE, COLOR_THEME_COOKIE_NAME, LIGHT_TOKENS, DARK_TOKENS } from '@/constants';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import './styles.css';
@@ -30,8 +31,9 @@ const monoFont = Spline_Sans_Mono({
 });
 
 function RootLayout({ children }) {
+  const savedTheme = cookies().get(COLOR_THEME_COOKIE_NAME);
   // TODO: Dynamic theme depending on user preference
-  const theme = 'light';
+  const theme = savedTheme?.value || 'light';
 
   return (
     <RespectMotionPreferences>
@@ -42,7 +44,7 @@ function RootLayout({ children }) {
         style={theme === 'light' ? LIGHT_TOKENS : DARK_TOKENS}
       >
         <body>
-          <Header theme={theme} />
+          <Header initialTheme={theme} />
           <main>{children}</main>
           <Footer />
         </body>
