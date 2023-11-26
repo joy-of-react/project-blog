@@ -126,3 +126,7 @@ export const DARK_TOKENS = {
   ...DARK_COLORS,
   ...DARK_SHADOWS,
 };
+
+export const PAGE_VISITS = 1000;
+
+export const LIKE_COUNTER = 500;

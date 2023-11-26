@@ -3,7 +3,7 @@ import path from 'path';
 import matter from 'gray-matter';
 
 import React from 'react';
-
+ 
 export async function getBlogPostList() {
   const fileNames = await readDirectory('/content');
 
@@ -51,3 +51,5 @@ function readDirectory(localPath) {
     path.join(process.cwd(), localPath)
   );
 }
+
+

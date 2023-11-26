@@ -6,7 +6,7 @@ import styles from './postSlug.module.css';
 import { loadBlogPost } from '@/helpers/file-helpers';
 import { MDXRemote } from 'next-mdx-remote/rsc';
 
-import { BLOG_TITLE } from '@/constants';
+import { BLOG_TITLE, PAGE_VISITS } from '@/constants';
 import COMPONENT_MAP from '@/helpers/mdx-components';
 
 export async function generateMetadata({ params }) {
@@ -24,7 +24,7 @@ async function BlogPost({ params }){
       <BlogHero
         title={frontmatter.title}
         publishedOn={frontmatter.publishedOn}
-        />
+      />
       <div className={styles.page}>
       <MDXRemote 
         source ={content}
