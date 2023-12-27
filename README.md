@@ -341,7 +341,7 @@ There are two viable approaches here:
 
 1. You can generate the XML file during the build, dropping the XML file in the `/public` directory. You can use a `prebuild` NPM script to automatically do some work before the `build` script runs. See the [NPM docs](https://docs.npmjs.com/cli/v9/using-npm/scripts#pre--post-scripts) for more information.
 
-2. You can generate the XML file on-demand, when the user visits `/rss.xml`, using a Next.js [Route Handler](https://nextjs.org/docs/app/building-your-application/routing/route-handlers). Route handlers allow us to build API endpoints that run on the server and can do things like generate custom responses.
+2. You can generate the XML file on-demand, when the user visits `/rss.xml`, using a Next.js [Route Handler](https://nextjs.org/docs/app/building-your-application/routing/route-handlers). Route handlers allow us to build API endpoints that run on the server and can do things like generate custom responses. Example from official [docs](https://nextjs.org/docs/app/building-your-application/routing/route-handlers#non-ui-responses).
 
 To generate the RSS feed itself, you can use an NPM dependency. I use the [rss](https://www.npmjs.com/package/rss) NPM package. It's fantastic.
 
