@@ -1,14 +1,14 @@
 # Blog Project
 ## Joy of React, Project III
 
-In this project, we'll build an interactive MDX-based blog using Next 13:
+In this project, we'll build an interactive MDX-based blog using Next.js 14 (App Router):
 
 ![Screenshot of the final product](/docs/end-result.png)
 
 
 ## Getting Started
 
-This is a Next 13 project. You'll first need to install NPM dependencies, and then run a local development server. Here are the relevant terminal commands:
+This is a Next 14 project. You'll first need to install NPM dependencies, and then run a local development server. Here are the relevant terminal commands:
 
 ```bash
 # Install dependencies:
