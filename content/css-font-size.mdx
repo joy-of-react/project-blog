@@ -12,11 +12,13 @@ Understanding how to wield the font-size property effectively can truly elevate 
 
 The CSS font-size property controls the size of the text. It can accept various types of values, including length units (like px, em, rem), percentages, and keywords (like small, medium, large). For example, the syntax could be as simple as this:
 
-```css
-p {
-  font-size: 16px;
-}
-```
+<CodeSnippet 
+  lang='css'
+  code={`p {
+    font-size: 16px;
+  }`} 
+/>
+
 
 In this instance, the paragraph text is set to be 16 pixels. However, it's crucial to understand the implications of different unit types, as they can impact how your typography scales across different devices and user settings.
 
@@ -24,14 +26,16 @@ The pixels (px) are fixed-size units. They're great for consistency but lack fle
 
 The em unit is relative to the font-size of the parent element. This means if the parent element has a font-size of 20px, then "1em" for the child element will be 20px. On the other hand, rem units are relative to the root—or the html—element, making it easier to achieve consistent sizing across your website.
 
-```css
-html {
-  font-size: 20px;
-}
+<CodeSnippet 
+  lang='css'
+  code={`html {
+    font-size: 20px;
+  }
 
-p {
-  font-size: 1.5rem; /* This will be 30px */
-}
-```
+  p {
+    font-size: 1.5rem; /* This will be 30px */
+  }`}
+/>
+
 
 However, these units are just the tip of the iceberg. There are more to consider, including percentage-based sizes, viewport units (vw/vh), and even the newer, dynamic "clamp" function. Each of these opens up new possibilities and brings its own strengths to the table.

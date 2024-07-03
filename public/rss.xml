@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title><![CDATA[Bits & Bytes]]></title>
+        <description><![CDATA[A wonderful blogS]]></description>
+        <link>localhost:3000</link>
+        <generator>RSS for Node</generator>
+        <lastBuildDate>Wed, 03 Jul 2024 07:51:12 GMT</lastBuildDate>
+        <atom:link href="localhost:3000/rss.xml" rel="self" type="application/rss+xml"/>
+        <pubDate>Wed, 03 Jul 2024 07:51:12 GMT</pubDate>
+        <copyright><![CDATA[2024 localhost:3000.com]]></copyright>
+        <language><![CDATA[en]]></language>
+        <ttl>60</ttl>
+        <category><![CDATA[blogs]]></category>
+        <item>
+            <title><![CDATA[Understanding the JavaScript Modulo Operator]]></title>
+            <description><![CDATA[One of the most commonly-misunderstood operators is Modulo (%). In this tutorial, we'll unpack exactly what this little bugger does, and learn how it can help us solve practical problems.]]></description>
+            <link>http:localhost:3000/javascript-modulo-operator</link>
+            <guid isPermaLink="true">http:localhost:3000/javascript-modulo-operator</guid>
+            <pubDate>Wed, 06 Sep 2023 16:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Demystifying JavaScript Closures]]></title>
+            <description><![CDATA[Closures, a core concept in JavaScript, can seem cryptic and challenging to grasp. This post delves into the world of JavaScript closures, unraveling their intricacies and shedding light on their power in managing scope and preserving data across function executions.]]></description>
+            <link>http:localhost:3000/javascript-closures</link>
+            <guid isPermaLink="true">http:localhost:3000/javascript-closures</guid>
+            <pubDate>Sat, 02 Sep 2023 16:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Revolutionizing Web Interactions with the Power of React and CSS]]></title>
+            <description><![CDATA[Front-end web development has morphed into a dazzling spectacle of design and functionality. With the advance of tools like React and CSS, developers now wield a fascinating range of techniques to turn a standard user interface into an interactive, engaging experience. This blog post explores the magic of integrating React and CSS in front-end development.]]></description>
+            <link>http:localhost:3000/react-and-css</link>
+            <guid isPermaLink="true">http:localhost:3000/react-and-css</guid>
+            <pubDate>Tue, 29 Aug 2023 16:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[A Deep Dive into the CSS font-size Property]]></title>
+            <description><![CDATA[Typography is a fundamental aspect of any web page's design, shaping not only readability but also a site's overall personality. At the heart of this process is the CSS font-size property - a simple, yet incredibly versatile, tool that influences the visual hierarchy of our content.]]></description>
+            <link>http:localhost:3000/css-font-size</link>
+            <guid isPermaLink="true">http:localhost:3000/css-font-size</guid>
+            <pubDate>Tue, 11 Jul 2023 16:00:00 GMT</pubDate>
+        </item>
+    </channel>
+</rss>
