@@ -12,12 +12,12 @@ function Home() {
       </h1>
 
       {/* TODO: Iterate over the data read from the file system! */}
-      <BlogSummaryCard
-        slug="example"
-        title="Hello world!"
-        abstract="This is a placeholder, an example which shows how the “BlogSummaryCard” component should be used. You'll want to swap this out based on the data from the various MDX files!"
-        publishedOn={new Date()}
-      />
+        {<BlogSummaryCard
+            slug="example"
+            title="Hello world!"
+            abstract="This is a placeholder, an example which shows how the “BlogSummaryCard” component should be used. You'll want to swap this out based on the data from the various MDX files!"
+            publishedOn={new Date()}
+        />}
     </div>
   );
 }

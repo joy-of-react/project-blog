@@ -3,7 +3,7 @@
 
 In this project, we'll build an interactive MDX-based blog using Next.js 14 (App Router):
 
-![Screenshot of the final product](/docs/end-result.png)
+![Screenshot of the final product](./docs/end-result.png)
 
 
 ## Getting Started
@@ -50,7 +50,7 @@ npm run new-component [TheNewComponentName]
 
 Let's update the homepage so that it shows a list of blog posts:
 
-![Screenshot showing the homepage with a reverse-chronological list of blog posts](/docs/homepage-list-of-posts.png)
+![Screenshot showing the homepage with a reverse-chronological list of blog posts](./docs/homepage-list-of-posts.png)
 
 **Acceptance Criteria:**
 
@@ -68,7 +68,7 @@ Let's update the homepage so that it shows a list of blog posts:
 
 When clicking on one of the blog posts on the homepage, we're taken to the dynamic blog post route:
 
-![Screenshot showing the blog post layout with the initial placeholder content](/docs/blog-post-before-mdx.png)
+![Screenshot showing the blog post layout with the initial placeholder content](./docs/blog-post-before-mdx.png)
 
 In this exercise, we'll use next-mdx-remote to render the MDX associated with the selected blog post.
 
@@ -182,7 +182,7 @@ If you uncomment this code, you'll get an error telling you that next-mdx-remote
 
 This component exists, and you can find it in `/src/components/DivisionGroupsDemo/DivisionGroupsDemo.js`. Your mission in the first part of this exercise is to resolve this component, fixing the issue and getting it rendering, like so:
 
-![Screen recording showing the embedded `DivisionGroupsDemo` component](/docs/division-groups-demo.png)
+![Screen recording showing the embedded `DivisionGroupsDemo` component](./docs/division-groups-demo.png)
 
 **Acceptance Criteria:**
 
@@ -200,11 +200,11 @@ This component exists, and you can find it in `/src/components/DivisionGroupsDem
 
 As it stands, the `DivisionGroupsDemo` widget works alright, but it does feel pretty abrupt:
 
-![Screen recording showing the default behaviour, instant transitions](/docs/division-groups-default.gif)
+![Screen recording showing the default behaviour, instant transitions](./docs/division-groups-default.gif)
 
 Let's implement some _layout animations_, so that the pink circles being grouped up glide smoothly when the number of groups changes:
 
-![Screen recording showing the new behaviour, smooth layout animations](/docs/division-groups-animated.gif)
+![Screen recording showing the new behaviour, smooth layout animations](./docs/division-groups-animated.gif)
 
 **Acceptance Criteria:**
 
@@ -233,11 +233,11 @@ If you keep scrolling down inside `javascript-modulo-operator.mdx`, you'll notic
 
 If you haven't already, you can uncomment this second `DivisionGroupsDemo` element. Your mission in this final part of the exercise is to ensure that the layout animations continue working as expected:
 
-![Screen recording showing the final animation](/docs/divison-groups-demo-with-remainder.gif)
+![Screen recording showing the final animation](./docs/divison-groups-demo-with-remainder.gif)
 
 **There's a subtle thing here:** We want elements entering the Remainder Area to enter from the right, not the left. This GIF shows the difference:
 
-![Screen recording showing how elements should stack in the Remainder Area](/docs/division-groups-remainder-stack-direction.gif)
+![Screen recording showing how elements should stack in the Remainder Area](./docs/division-groups-remainder-stack-direction.gif)
 
 **NOTE:** to help illustrate the difference, I've given the items different colors/shapes in this GIF. You don't need to incorporate this change; your items should all be pink circles.
 
@@ -259,7 +259,7 @@ If you haven't already, you can uncomment this second `DivisionGroupsDemo` eleme
 
 Our “Understanding the JavaScript Modulo Operator” blog post has one more embedded widget, `CircularColorsDemo`:
 
-![Screen recording of the `CircularColorsDemo` component](/docs/circular-colors-demo.gif)
+![Screen recording of the `CircularColorsDemo` component](./docs/circular-colors-demo.gif)
 
 This widget demonstrates how the Modulo operator can be used to select items from an array in a circular manner. A timer climbs from 0 to infinity, and that linear value is used to pluck one of three colors, circling back to the front on each 3rd value.
 
@@ -286,7 +286,7 @@ This widget demonstrates how the Modulo operator can be used to select items fro
 
 Inside the site header, we have a little sun icon. As of right now, it doesn't do anything. Your mission in this exercise is to wire it up so that it toggles between light mode and dark mode:
 
-![Toggling between light mode and dark mode](/docs/dark-mode-toggle.gif)
+![Toggling between light mode and dark mode](./docs/dark-mode-toggle.gif)
 
 Inside the root layout (`/src/app/layout.js`), you'll see that the theme is currently being hardcoded as `'light'`. If you manually change this value to `'dark'`, the site will flip to the dark mode color theme. Your mission is to expand this implementation so that it can be toggled by the user, with their preference being persisted.
 
@@ -319,7 +319,7 @@ A surprising number of people prefer to read blog posts using an RSS reader. An 
 
 For example, [Feedly](https://feedly.com/) is an RSS reader showing new posts from some of the blogs I follow:
 
-![Screenshot of “Feedly”, an RSS reader](/docs/feedly.png)
+![Screenshot of “Feedly”, an RSS reader](./docs/feedly.png)
 
 In order for people to add our blog to their RSS readers, we need to produce an RSS feed. This is an XML document that contains all the info these readers need. For example, you can check out the RSS feed I publish on my official blog here:
 
@@ -327,7 +327,7 @@ In order for people to add our blog to their RSS readers, we need to produce an 
 
 Our blog currently includes a link to the RSS feed, using the typical RSS icon:
 
-![Screenshot of the site header, showing the RSS icon](/docs/rss-icon.png)
+![Screenshot of the site header, showing the RSS icon](./docs/rss-icon.png)
 
 Right now, it links to a feed that doesn't exist. Your mission in this stretch goal should be to produce an RSS feed.
 
@@ -363,7 +363,7 @@ As it stands, we get a pretty funky error:
 
 Your mission in this exercise is to instead render a “404 not found” page:
 
-![Screenshot of the 404 page](/docs/404-page.png)
+![Screenshot of the 404 page](./docs/404-page.png)
 
 **Acceptance Criteria:**
 
