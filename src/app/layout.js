@@ -38,8 +38,8 @@ export const metadata = {
   description: BLOG_DESCRIPTION,
 };
 
-function RootLayout({ children }) {
-  const savedTheme = cookies().get(
+async function RootLayout({ children }) {
+  const savedTheme = (await cookies()).get(
     COLOR_THEME_COOKIE_NAME
   );
   const theme = savedTheme?.value || 'light';

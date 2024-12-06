@@ -11,8 +11,9 @@ import BlogHero from '@/components/BlogHero';
 import styles from './postSlug.module.css';
 
 export async function generateMetadata({ params }) {
+  const { postSlug } = await params;
   const blogPostData = await loadBlogPost(
-    params.postSlug
+    postSlug
   );
 
   // If we can't locate the blog post, this will be a 404. This
@@ -39,8 +40,9 @@ export async function generateMetadata({ params }) {
 }
 
 async function BlogPost({ params }) {
+  const { postSlug } = await params;
   const blogPostData = await loadBlogPost(
-    params.postSlug
+    postSlug
   );
 
   // If there is no blog post with the slug taken from the route
