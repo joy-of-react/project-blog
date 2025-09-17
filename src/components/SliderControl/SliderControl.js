@@ -1,7 +1,7 @@
-import React from 'react';
+import React from "react";
 
-import Slider from '@/components/Slider';
-import styles from './SliderControl.module.css';
+import Slider from "@/components/Slider";
+import styles from "./SliderControl.module.css";
 
 function SliderControl({ label, value, ...delegated }) {
   const id = React.useId();

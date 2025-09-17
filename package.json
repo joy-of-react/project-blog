@@ -10,6 +10,7 @@
     "new-component": "new-component"
   },
   "dependencies": {
+    "@next/bundle-analyzer": "15.5.3",
     "bright": "1.0.0",
     "clsx": "1.2.1",
     "date-fns": "2.30.0",
