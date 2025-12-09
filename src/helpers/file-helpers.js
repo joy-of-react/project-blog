@@ -26,14 +26,17 @@ export async function getBlogPostList() {
   );
 }
 
+const delay = (ms) => new Promise((resolve) => (
+  setTimeout(resolve, ms)
+));
+
 export const loadBlogPost = React.cache(
   async function loadBlogPost(slug) {
-    const rawContent = await readFile(
-      `/content/${slug}.mdx`
-    );
+    await delay(2000);
 
-    const { data: frontmatter, content } =
-      matter(rawContent);
+    const rawContent = await readFile(`/content/${slug}.mdx`);
+
+    const { data: frontmatter, content } = matter(rawContent);
 
     return { frontmatter, content };
   }
