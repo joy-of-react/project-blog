@@ -10,17 +10,17 @@
     "new-component": "new-component"
   },
   "dependencies": {
-    "bright": "0.8.4",
+    "bright": "1.0.0",
     "clsx": "1.2.1",
     "date-fns": "2.30.0",
     "eslint": "8.43.0",
     "eslint-config-next": "13.4.6",
-    "framer-motion": "10.14",
+    "motion": "12.26.2",
     "gray-matter": "4.0.3",
     "js-cookie": "3.0.5",
     "new-component": "5.0.2",
     "next": "^15.0.4",
-    "next-mdx-remote": "4.4.1",
+    "next-mdx-remote": "5",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-feather": "2.0.10"
