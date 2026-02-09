@@ -19,7 +19,7 @@
     "gray-matter": "4.0.3",
     "js-cookie": "3.0.5",
     "new-component": "5.0.2",
-    "next": "^15.0.4",
+    "next": "^15.5.0",
     "next-mdx-remote": "5",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
