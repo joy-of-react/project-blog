@@ -1,6 +1,7 @@
 import React from 'react';
 import { MDXRemote } from 'next-mdx-remote-client/rsc';
 
+import { BLOG_TITLE } from '@/constants';
 import BlogHero from '@/components/BlogHero';
 import { loadBlogPost } from '@/helpers/file-helpers';
 
@@ -12,7 +13,7 @@ export async function generateMetadata({ params }) {
   const { frontmatter } = await loadBlogPost(postSlug);
 
   return {
-    title: frontmatter.title,
+    title: `${frontmatter.title} | ${BLOG_TITLE}`,
     description: frontmatter.abstract,
   };
 }
