@@ -1,7 +1,7 @@
 import React from 'react';
 
 import BlogSummaryCard from '@/components/BlogSummaryCard';
-import { getBlogPostList } from '../helpers/file-helpers';
+import { getBlogPostList } from '@/helpers/file-helpers';
 
 import styles from './homepage.module.css';
 
