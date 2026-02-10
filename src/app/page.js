@@ -2,8 +2,16 @@ import React from 'react';
 
 import BlogSummaryCard from '@/components/BlogSummaryCard';
 import { getBlogPostList } from '@/helpers/file-helpers';
+import { BLOG_TITLE, BLOG_DESCRIPTION } from '@/constants';
 
 import styles from './homepage.module.css';
+
+export async function generateMetadata() {
+  return {
+    title: BLOG_TITLE,
+    description: BLOG_DESCRIPTION,
+  };
+}
 
 async function Home() {
   const blogPosts = await getBlogPostList();
