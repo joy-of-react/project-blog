@@ -80,10 +80,19 @@ function DivisionGroupsDemo({
         {includeRemainderArea && (
           <div className={styles.remainderArea}>
             <p className={styles.remainderHeading}>Remainder Area</p>
-
-            {range(remainder).map((index) => {
-              return <div key={index} className={styles.item} />;
-            })}
+            {remainder > 0 &&
+              items
+                .slice(-1 * remainder)
+                .reverse()
+                .map(({ idx }) => {
+                  return (
+                    <motion.div
+                      layoutId={idx}
+                      key={idx}
+                      className={styles.item}
+                    />
+                  );
+                })}
           </div>
         )}
 
