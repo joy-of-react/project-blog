@@ -75,29 +75,26 @@ function CircularColorsDemo() {
         </dl>
         <div className={styles.actions}>
           {interval ? (
-            <button
-              onClick={() => {
+            <IconButton
+              handler={() => {
                 handleStopInterval(interval);
               }}
-            >
-              <Pause />
-              <VisuallyHidden>Pause</VisuallyHidden>
-            </button>
+              icon={<Pause />}
+              label='Pause'
+            />
           ) : (
-            <button
-              onClick={() => {
-                handleStartInterval();
-              }}
-            >
-              <Play />
-              <VisuallyHidden>Play</VisuallyHidden>
-            </button>
+            <IconButton
+              handler={handleStartInterval}
+              icon={<Play />}
+              label='Play'
+            />
           )}
 
-          <button onClick={() => handleReset()}>
-            <RotateCcw />
-            <VisuallyHidden>Reset</VisuallyHidden>
-          </button>
+          <IconButton
+            handler={handleReset}
+            icon={<RotateCcw />}
+            label='Reset'
+          />
         </div>
       </div>
     </Card>
@@ -105,3 +102,12 @@ function CircularColorsDemo() {
 }
 
 export default CircularColorsDemo;
+
+function IconButton({ handler, icon, label }) {
+  return (
+    <button onClick={handler}>
+      {icon}
+      <VisuallyHidden>{label}</VisuallyHidden>
+    </button>
+  );
+}
