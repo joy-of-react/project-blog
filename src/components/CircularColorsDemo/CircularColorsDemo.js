@@ -17,7 +17,7 @@ const COLORS = [
 
 function CircularColorsDemo() {
   const [timeElapsed, setTimeElapsed] = React.useState(0);
-  const [interval, setInterval] = React.useState(null);
+  const [status, setStatus] = React.useState('off');
 
   const selectedColor = COLORS[timeElapsed % COLORS.length];
 
@@ -38,10 +38,16 @@ function CircularColorsDemo() {
   };
 
   React.useEffect(() => {
+    if (status === 'off') {
+      return;
+    }
+    const incrementTime = () => setTimeElapsed((t) => ++t);
+    const interval = window.setInterval(incrementTime, 1000);
+
     return () => {
       window.clearInterval(interval);
     };
-  }, []);
+  }, [status]);
 
   return (
     <Card as='section' className={styles.wrapper}>
@@ -74,24 +80,27 @@ function CircularColorsDemo() {
           <dd>{timeElapsed}</dd>
         </dl>
         <div className={styles.actions}>
-          {interval ? (
+          {status === 'on' ? (
             <IconButton
               handler={() => {
-                handleStopInterval(interval);
+                setStatus('off');
               }}
               icon={<Pause />}
               label='Pause'
             />
           ) : (
             <IconButton
-              handler={handleStartInterval}
+              handler={() => setStatus('on')}
               icon={<Play />}
               label='Play'
             />
           )}
 
           <IconButton
-            handler={handleReset}
+            handler={() => {
+              setStatus('off');
+              setTimeElapsed(0);
+            }}
             icon={<RotateCcw />}
             label='Reset'
           />
