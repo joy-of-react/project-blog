@@ -2,6 +2,7 @@
 
 import React from 'react';
 import clsx from 'clsx';
+import { motion } from 'motion/react';
 import { Play, Pause, RotateCcw } from 'react-feather';
 
 import Card from '@/components/Card';
@@ -19,23 +20,9 @@ function CircularColorsDemo() {
   const [timeElapsed, setTimeElapsed] = React.useState(0);
   const [status, setStatus] = React.useState('off');
 
+  const layoutId = React.useId();
+
   const selectedColor = COLORS[timeElapsed % COLORS.length];
-
-  // time interval-related methods & handlers
-  const incrementTime = () => setTimeElapsed((t) => ++t);
-
-  const handleStartInterval = () => {
-    const int = window.setInterval(incrementTime, 1000);
-    setInterval(int);
-  };
-  const handleStopInterval = (int) => {
-    setInterval(null);
-    window.clearInterval(int);
-  };
-  const handleReset = () => {
-    handleStopInterval(interval);
-    setTimeElapsed(0);
-  };
 
   React.useEffect(() => {
     if (status === 'off') {
@@ -57,7 +44,13 @@ function CircularColorsDemo() {
 
           return (
             <li className={styles.color} key={index}>
-              {isSelected && <div className={styles.selectedColorOutline} />}
+              {isSelected && (
+                <motion.div
+                  layoutId={layoutId}
+                  initial={{ zIndex: 2 }}
+                  className={styles.selectedColorOutline}
+                />
+              )}
               <div
                 className={clsx(
                   styles.colorBox,
