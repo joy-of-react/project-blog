@@ -83,7 +83,6 @@ function DivisionGroupsDemo({
             {remainder > 0 &&
               items
                 .slice(-1 * remainder)
-                .reverse()
                 .map(({ idx }) => {
                   return (
                     <motion.div

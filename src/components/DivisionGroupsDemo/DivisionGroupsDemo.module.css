@@ -67,6 +67,7 @@
   width: 100%;
   max-width: 600px;
   margin-top: 16px;
+  flex-direction: row-reverse;
 }
 .remainderHeading {
   position: absolute;
