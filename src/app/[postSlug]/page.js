@@ -1,5 +1,6 @@
 import React from 'react';
 import { MDXRemote } from 'next-mdx-remote-client/rsc';
+import { notFound } from 'next/navigation'
 
 import { BLOG_TITLE } from '@/constants';
 import BlogHero from '@/components/BlogHero';
@@ -11,7 +12,13 @@ import styles from './postSlug.module.css';
 export async function generateMetadata({ params }) {
   const { postSlug } = await params;
 
-  const { frontmatter } = await loadBlogPost(postSlug);
+  const blogData = await loadBlogPost(postSlug);
+
+  if (!blogData) {
+    return null;
+  }
+
+  const { frontmatter } = blogData;
 
   return {
     title: `${frontmatter.title} | ${BLOG_TITLE}`,
@@ -22,7 +29,13 @@ export async function generateMetadata({ params }) {
 async function BlogPost({ params }) {
   const { postSlug } = await params;
 
-  const { frontmatter, content } = await loadBlogPost(postSlug);
+  const data = await loadBlogPost(postSlug);
+  
+  if (!data) {
+    notFound();
+  }
+
+  const {frontmatter, content} = data;
 
   return (
     <article className={styles.wrapper}>

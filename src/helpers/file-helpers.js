@@ -23,10 +23,17 @@ export async function getBlogPostList() {
 }
 
 export const loadBlogPost = cache(async function (slug) {
-  const rawContent = await readFile(`/content/${slug}.mdx`);
+  let rawContent;
+  
+  try {
+    rawContent = await readFile(`/content/${slug}.mdx`);
+  } catch (err) {
+    console.info(err);
+    return null;
+  }
 
   const { data: frontmatter, content } = matter(rawContent);
-
+  
   return { frontmatter, content };
 });
 
