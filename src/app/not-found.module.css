@@ -1,0 +1,14 @@
+.wrapper {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  min-height: 64vh;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  text-align: center;
+  max-width: var(--outer-content-width);
+  margin-inline: auto;
+  padding: 64px var(--viewport-padding) 32px;
+}
